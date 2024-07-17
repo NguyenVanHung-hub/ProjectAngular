@@ -1,0 +1,59 @@
+.box-home{
+    background-image: url("https://oldsailor.com.vn/vnt_upload/weblink/z5535063172577_aa7671b3f4a417f2498951d700b65918.jpg");
+    z-index: 10;
+    background-size: cover;
+    background-attachment: local;
+    position: relative;
+  
+}
+.box-home::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); /* Màu đen với độ mờ 50% */
+    z-index: 1; /* Đặt lớp mờ phía trước hình ảnh */
+  }
+  
+.box-home-tex{
+    position: relative;
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    z-index: 999;
+}
+.box-home-tex h2{
+    font-size: 270%;
+    margin: 0;
+}
+.box-home-tex p{
+    font-size: 150%;
+    font-weight: 100;
+    margin: 20px 0;
+}
+.box-input{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.box-input input{
+    width: 30%;
+    padding: 5px;
+    font-size: 100%;
+    color: white;
+    border: none;
+
+}
+.box-input button{
+    width: 5%;
+    padding: 5px;
+    font-size: 100%;
+    border: none;
+    background-color: black;
+    color: white;
+}

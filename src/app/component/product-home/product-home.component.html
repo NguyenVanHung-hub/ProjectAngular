@@ -1,0 +1,29 @@
+<div class="product-home">
+    <h2>San Pham Hom Nay</h2>
+    <div class="product-home-item container">
+        <div class="row" >
+            <div class="col-md-3" *ngFor="let item of products; let i = index">
+                <div class="product-img" 
+                (mouseenter)="setHoverState(i, true)"
+                (mouseleave)="setHoverState(i, false)">
+                    <img src="{{item.img}}" alt="">
+                    <div class="product-Description " *ngIf="isHovered(i)">
+                    {{item.mota}}
+                    </div>
+                </div>
+                <div class="product-tex">
+                    <p>{{item.name}}</p>
+                    <p>{{item.price}}vnd</p>
+                </div>
+                
+                <div class="buy">
+                    <button class="button-hover">Mua</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="more">
+        <a href="#">Xem Them ...</a>
+    </div>
+</div>
