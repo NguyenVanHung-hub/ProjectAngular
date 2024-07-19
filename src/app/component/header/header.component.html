@@ -10,12 +10,34 @@
             <button>Dang Ky</button>
             <button>Dang Nhap</button>
         </div>
+        <div class="menu-moblie">
+            <div class="icon" (click) = "changeStyle()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="menu-moblie-wrapper" #paragraph>
+                <div class="icon-x">
+                    <i class="fa-solid fa-xmark"  (click) = "changeStyle2()"></i>
+                </div>
+                <div class="menu-mo">
+                    <ul>
+                        <a routerLink="/"><li>Trang Chu</li></a>
+                        <a href="#"><li>Gioi Thieu</li></a>
+                        <a routerLink="/product"><li>San Pham</li></a>
+                        <a href="#"><li>Lien He</li></a>
+                    </ul>
+                </div>
+                <div class="SingeIn-Out-mobile">
+                    <button>Dang Ky</button>
+                    <button>Dang Nhap</button>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="menu-main">
         <ul>
-            <a href="#"><li>Trang Chu</li></a>
+            <a routerLink="/"><li>Trang Chu</li></a>
             <a href="#"><li>Gioi Thieu</li></a>
-            <a href="#"><li>San Pham</li></a>
+            <a routerLink="/product"><li>San Pham</li></a>
             <a href="#"><li>Lien He</li></a>
         </ul>
     </div>

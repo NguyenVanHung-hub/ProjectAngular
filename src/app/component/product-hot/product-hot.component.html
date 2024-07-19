@@ -1,24 +1,25 @@
 <div class="product-hot">
     <h2>San Pham ban chay</h2>
     <div class="product-hot-item container">
-        <div class="row" >
-            <div class="col-md-3" *ngFor="let item of products; let i = index">
-                <div class="product-img" 
-                (mouseenter)="setHoverState(i, true)"
-                (mouseleave)="setHoverState(i, false)">
+        <div class="row " >
+            <div class="col-md-3 col-sm-6 col-12 p-2 " *ngFor="let item of products; let i = index">
+               <div class="col-item">
+                    <div class="product-img" (mouseenter)="setHoverState(i, true)"
+                    (mouseleave)="setHoverState(i, false)">
                     <img src="{{item.img}}" alt="">
                     <div class="product-Description " *ngIf="isHovered(i)">
                     {{item.mota}}
                     </div>
-                </div>
-                <div class="product-tex">
-                    <p>{{item.name}}</p>
+                    </div>
+                    <div class="product-tex">
+                    <a [routerLink]="['/product', item.id]"><p>{{item.name}}</p></a>
                     <p>{{item.price}}vnd</p>
-                </div>
+                    </div>
                 
-                <div class="buy">
+                    <div class="buy">
                     <button class="button-hover">Mua</button>
-                </div>
+                    </div>
+               </div>
             </div>
             
         </div>

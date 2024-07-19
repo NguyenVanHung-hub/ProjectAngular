@@ -1,12 +1,25 @@
 .header{
     
-    
+    position: relative;
     
     font-size: 140%;
     /* background-color: black;
     color: white; */
 }
+.menu-moblie{
+    display: none;
+}
+.menu-moblie-wrapper{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 500px;
+    z-index: 9999;
+    transform: translateX(470px);
+}
 .header-top{
+    
     padding: 20px 200px;
     
     display: flex;
@@ -68,3 +81,79 @@
      text-decoration: none;
      list-style: none;
  }
+
+
+
+
+ /* Reponsive */
+ @media only screen and (max-width: 991px)  {
+
+    .menu-moblie{
+        display: block;
+    }
+    .header-top{
+        padding: 20px 50px;
+    }
+    .menu-main{
+        display: none;
+    }
+    .menu-moblie-wrapper{
+        
+        background-color: whitesmoke;
+    }
+    .SingeIn-Out{
+        display: none;
+    }
+    .SingeIn-Out-mobile button{
+        padding: 5px;
+        font-size: 90%;
+        border-radius: 20px;
+        border: none;
+        background-color: rgb(90, 243, 90);
+    }
+    .SingeIn-Out-mobile button:nth-child(1){
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-right: 10px
+    }
+   .icon-x{
+    padding: 10px 0 10px 30px;
+   }
+    .icon-x i{
+        color: black;
+    }
+    .menu-mo {
+        background-color: rgb(0,0,0,0.1);
+        padding:30px;
+    }
+    .menu-mo ul {
+        padding: 0;
+        margin: 0;
+    }
+    .menu-mo ul a{
+        text-decoration: none;
+        list-style: none;
+        color: black;
+    }
+    
+ }
+
+ @media only screen and (max-width: 767px)  {
+
+    .menu-moblie{
+        display: block;
+    }
+    .header-top{
+        padding: 20px 20px;
+    }
+    .menu-main{
+        display: none;
+    }
+    .search{
+        display: none;
+    }
+    .SingeIn-Out{
+        display: none;
+    }
+ }
+ 

@@ -1,0 +1,13 @@
+<div class="pro-detail" *ngIf="productDetail">
+    <h2>Thong Tin Chi Tiet</h2>
+    <div class="pro-detail-item" >
+        <div class="de-item-lef">
+            <img src="{{productDetail.img}}" alt="">
+        </div>
+        <div class="de-item-right">
+            <p>Ten: {{productDetail.name}}</p>
+            <p>Gia: {{productDetail.price}}vnd</p>
+            <p>Mo Ta: {{productDetail.mota}}</p>
+        </div>
+    </div>
+</div>

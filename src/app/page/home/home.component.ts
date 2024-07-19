@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "../../component/header/header.component";
 import { BannerComponent } from "../../component/banner/banner.component";
 import { ProductHotComponent } from "../../component/product-hot/product-hot.component";
@@ -9,7 +10,7 @@ import { FooterComponent } from "../../component/footer/footer.component";
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, BannerComponent, ProductHotComponent, ProductHomeComponent, BoxHomeComponent, FooterComponent],
+  imports: [RouterOutlet,HeaderComponent, BannerComponent, ProductHotComponent, ProductHomeComponent, BoxHomeComponent, FooterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

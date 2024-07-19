@@ -1,28 +1,30 @@
-.product-hot{
+.product-main{
+    width: 100%;
+    height: auto;
     padding: 50px 200px;
-    background-color: rgb(0,0,0, 0.1);
 }
-.product-hot h2{
-    font-size: 250%;
-    margin-bottom: 50px;
+.product-main h2{
+    text-transform: uppercase;
+    font-size: 200%;
+    margin-bottom: 30px;
 }
-.container{
-    padding: 0;
+.select-pro{
+    margin-bottom: 20px;
+    width: 20%;
+    font-size: 130%;
 }
 .row{
     width: 100%;
-    margin: 0;
-    /* display: grid;
-    grid-template-columns:auto auto auto auto;
-    grid-column-gap:20px; */
+    display: flex;
+    flex-wrap: wrap;
     
 }
 .col-md-3{
     
-    /* width: 24%; */
-    
-    /* margin-bottom: 20px; */
-    padding:0;
+    /* width: 24%;
+    margin-right: 10px; */
+    margin-bottom: 20px;
+    padding:12px;
 }
 .col-item{
     border: 1px solid;
@@ -33,11 +35,10 @@
     position: relative;
 }
 .product-Description{
-    width: 96%;
     position: absolute;
     bottom: 0;
-    /* padding-bottom: 5px;
-    margin-right: 5px; */
+    padding-bottom: 5px;
+    margin-right: 5px;
     font-size: 130%;
     z-index: 9999;
     background-color: red;
@@ -55,7 +56,9 @@
     margin-top: 5px;
     display: flex;
     justify-content: space-between;
-    font-size: 130%;  
+    font-size: 130%;
+    
+    
 }
 .product-tex a{
     text-decoration: none;
@@ -77,24 +80,40 @@
     color: red;
 }
 
-
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 
 /* Responsive */
+@media only screen and (max-width: 1400){
+    .product-tex{
+        flex-direction: column;
+    }
+    
+}
+
 @media (min-width: 768px) {
     .container, .container-md, .container-sm {
         max-width: 100%;
     }
 }
+
 @media only screen and (max-width: 991px) {
 
-    .product-hot{
+    .product-main{
         padding: 50px ;
         
     }
+    
     .container{
         margin: 0;
+    }
+    .select-pro{
+        width: 40%;
     }
     .product-tex{
         flex-direction: column;
@@ -103,11 +122,14 @@
 }
 
 @media only screen and (max-width: 677px) {
-    .product-hot{
+    .product-main{
         padding: 30px 0 ;
         
     }
-    .product-hot h2{
+    .select-pro{
+        width: 80%;
+    }
+    .product-main h2{
         font-size: 200%;
         margin-bottom: 20px;
     }

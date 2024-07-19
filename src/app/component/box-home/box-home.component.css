@@ -57,3 +57,39 @@
     background-color: black;
     color: white;
 }
+
+
+
+
+
+/* Responsive */
+
+@media only screen and (max-width: 991px) {
+    .box-home-tex h2{
+        font-size: 250%;
+        margin: 0;
+    }
+
+    .box-home-tex p{
+        font-size: 130%;
+        font-weight: 100;
+    } 
+}
+
+@media only screen and (max-width: 677px) {
+    .box-home-tex h2{
+        font-size: 200%;
+        margin: 0;
+    }
+
+    .box-home-tex p{
+        font-size: 100%;
+        font-weight: 100;
+    } 
+    .box-input input{
+        width: 40%;
+    }
+    .box-input button{
+        width: 10%;
+    }
+}
