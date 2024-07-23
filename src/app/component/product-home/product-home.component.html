@@ -2,7 +2,7 @@
     <h2>San Pham Hom Nay</h2>
     <div class="product-home-item container">
         <div class="row" >
-            <div class="col-md-3" *ngFor="let item of products; let i = index">
+            <div class="col-md-3" *ngFor="let item of products; let i = index" >
                 <div class="col-item">
                     <div class="product-img" 
                 (mouseenter)="setHoverState(i, true)"
@@ -17,8 +17,9 @@
                     <p>{{item.price}}vnd</p>
                     </div>
                 
-                    <div class="buy">
-                    <button class="button-hover">Mua</button>
+                    <div class="buy" >
+                    <button class="button-hover" (click)="onBuyClick(item)"
+                    >Mua</button>
                     </div>
                 </div>
             </div>

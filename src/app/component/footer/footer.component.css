@@ -104,7 +104,9 @@ list-style: none;
         flex-direction: column;
     }
     
-
+    .footer-top-item{
+        width: 100%;
+    }
     .footer-bottom{
         padding: 0;
         font-size: 70%;
