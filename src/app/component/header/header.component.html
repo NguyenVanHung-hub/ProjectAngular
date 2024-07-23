@@ -1,8 +1,8 @@
 <header class="header">
     <div class="shop-display" #paragraphShop>
-        <!-- <div class="shopmbg">
+        <div class="shopmbg" (click) = "changeStyleShop2()">
 
-        </div> -->
+        </div>
         <div class="shop-wrapper">
             <div class="shop-top">
                 <i class="fa-solid fa-xmark"  (click) = "changeStyleShop2()"></i>
@@ -41,17 +41,18 @@
        </div>
         <div class="SingeIn-Out">
             
-            <button>Dang Nhap</button>
+            <button class="SingeIn">Dang Nhap</button>
             <div class="shop" (click) = "changeStyleShop()">
                 <i class="fa-solid fa-shop"></i>
                 <div class="shop-number">
-                    0
+                    {{ receivedDataArray.length }}
                 </div>
             </div>
         </div>
-        <div class="menu-moblie">
-            <div class="icon" (click) = "changeStyle()">
-                <i class="fa-solid fa-bars"></i>
+        
+        <div class="menu-moblie"  >
+            <div class="icon"  >
+                <i class="fa-solid fa-bars" (click) = "changeStyle()"></i>
             </div>
             <div class="div-mobile" #paragraph>
                 <div class="menu-moblie-wrapper" >
@@ -83,9 +84,9 @@
     <div class="menu-main">
         <ul>
             <a routerLink="/"><li>Trang Chu</li></a>
-            <a href="#"><li>Gioi Thieu</li></a>
+            <a href="/introduce"><li>Gioi Thieu</li></a>
             <a routerLink="/product"><li>San Pham</li></a>
-            <a href="#"><li>Lien He</li></a>
+            <a href="/contact"><li>Lien He</li></a>
         </ul>
     </div>
 </header>

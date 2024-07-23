@@ -1,18 +1,19 @@
-import { Component,ElementRef,ViewChild,Renderer2, OnInit, OnDestroy } from '@angular/core';
+import { Component, ElementRef, ViewChild, Renderer2, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ShopDataService } from '../shop-data.service';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink,CommonModule,FormsModule],
+  imports: [RouterLink, CommonModule, FormsModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrls: ['./header.component.css'] // Cần đảm bảo styleUrls đúng
 })
-export class HeaderComponent implements OnInit,OnDestroy {
-  
+export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
+
   @ViewChild('paragraph') paragraph!: ElementRef;
   @ViewChild('paragraphShop') paragraphShop!: ElementRef;
   receivedDataArray: any[] = [];
@@ -20,30 +21,39 @@ export class HeaderComponent implements OnInit,OnDestroy {
 
   private dataSubscription: Subscription = new Subscription();
   private cssChangeSubscription: Subscription = new Subscription();
+
   constructor(private renderer: Renderer2, private shopDataService: ShopDataService) {}
-  
+
   changeStyle(): void {
-    
-    this.renderer.setStyle(this.paragraph.nativeElement, 'display', 'block');
-    
-    
+    if (this.paragraph) {
+      this.renderer.setStyle(this.paragraph.nativeElement, 'display', 'block');
+    }
   }
+
+  test(): void {
+    alert('da click');
+  }
+
   changeStyle2(): void {
-    
-    this.renderer.setStyle(this.paragraph.nativeElement, 'display', 'none');
+    if (this.paragraph) {
+      this.renderer.setStyle(this.paragraph.nativeElement, 'display', 'none');
+    }
   }
 
   changeStyleShop(): void {
-    
-    this.renderer.setStyle(this.paragraphShop.nativeElement, 'display', 'inline-block');
-    
-    
+    if (this.paragraphShop) {
+      this.renderer.setStyle(this.paragraphShop.nativeElement, 'display', 'inline-block');
+    }
   }
+
   changeStyleShop2(): void {
-    this.renderer.setStyle(this.paragraphShop.nativeElement, 'display', 'none');
+    if (this.paragraphShop) {
+      this.renderer.setStyle(this.paragraphShop.nativeElement, 'display', 'none');
+    }
   }
-  priceSum(): void{
-    this.Sum = this.receivedDataArray.reduce((total, product) => total + (product.price || 0)* (product.quantity || 1),0);   
+
+  priceSum(): void {
+    this.Sum = this.receivedDataArray.reduce((total, product) => total + (product.price || 0) * (product.quantity || 1), 0);
   }
 
   removeItem(index: number): void {
@@ -51,33 +61,36 @@ export class HeaderComponent implements OnInit,OnDestroy {
     this.shopDataService.setDataArray(this.receivedDataArray);
     this.priceSum();
   }
+
   updateQuantity(index: number): void {
     this.shopDataService.setDataArray(this.receivedDataArray);
     this.priceSum();
   }
+
   ngOnDestroy(): void {
     this.dataSubscription.unsubscribe();
+    this.cssChangeSubscription.unsubscribe();
   }
+
   ngOnInit(): void {
     this.dataSubscription = this.shopDataService.data$.subscribe(data => {
       this.receivedDataArray = data.map(item => ({
         ...item,
-        quantity: item.quantity || 1 
+        quantity: item.quantity || 1
       }));
       this.priceSum();
+      console.log(this.receivedDataArray.length);
     });
 
     this.cssChangeSubscription = this.shopDataService.cssChange$.subscribe(state => {
       if (state) {
-        
         this.changeStyleShop();
       } else {
-        
         this.changeStyleShop2();
       }
     });
-  
   }
 
-  
+  ngAfterViewInit(): void {
+  }
 }

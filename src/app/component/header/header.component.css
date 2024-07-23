@@ -11,6 +11,7 @@
     color: white; */
 }
 .shop-display{
+    position: relative;
     height: auto;
     display: none;
     position: absolute;
@@ -20,23 +21,28 @@
     color: black;
 
 }
-/* .shop-display{
-    position: fixed;
-    width: 100vw;
-    height: 100%;
+.shopmbg{
+    position: absolute;
+    top: 0;
+    
+    bottom: 0;
+    right: 0;
+    width: 382vh;
+    height: 100vh;
     background-color: rgba(0, 0, 0, .5);
     z-index: 2;
     
     transition: .5s ease-out;
-} */
+}
 .shop-wrapper{
-    position: relative;
-    
+    position: absolute;
     width: 80vh;
+    right: 0;
     height: 100vh;
     z-index: 9999;
     overflow: scroll;
     overflow-x: hidden;
+    background-color: white;
 }
 .shop-top{
     padding: 20px;
@@ -139,16 +145,16 @@
     padding-right: 15px;
     margin-right: 10px
 }
-/* .shop{
+.shop{
     position: relative;
     cursor: pointer;
     
-} */
+}
 .shop-number{
     position: absolute;
     font-size: 35px;
-    top: -65%;
-    right: -5px;
+    top: -80%;
+    right: -10px;
     color: red;
 }
 .header-bottom{
@@ -158,6 +164,9 @@
     width: 100%;
 }
 
+.icon{
+    display: none;
+}
 .menu-main{
     width: 100%;
     padding: 20px 200px;
@@ -185,6 +194,12 @@
     .menu-moblie{
         display: block;
     }
+    .div-mobile{
+        display: none;
+    }
+     .icon{
+        display: block;
+     }
     .header-top{
         padding: 20px 50px;
     }
@@ -210,7 +225,7 @@
         background-color: whitesmoke;
     }
 
-    .SingeIn-Out{
+    .SingeIn{
         display: none;
     }
 
@@ -252,8 +267,9 @@
     
  }
 
- @media only screen and (max-width: 767px)  {
 
+ @media only screen and (max-width: 576px)  {
+    
     .menu-moblie{
         display: block;
     }
@@ -269,8 +285,39 @@
     .search{
         display: none;
     }
-    .SingeIn-Out{
+    .SingeIn{
         display: none;
     }
+    .shop-wrapper{
+        width: 60vh;
+    }
+    .shop-product{
+        flex-direction: column;
+    }
+    .shop-pro-tex{
+        font-size: 16px;
+    }
+    .shop-pro-input{
+        font-size: 16px;
+    }
+    .shop-input {
+        margin-left: 10px;
+        width: 40px;
+        padding: 5px;
+    }
+    .shop-remove{
+        font-size: 16px;
+    }
  }
- 
+
+  @media only screen and (max-width: 490px)  {
+    .shop-wrapper{
+        width: 50vh;
+    }
+ }
+
+ @media only screen and (max-width: 361px)  {
+    .shop-wrapper{
+        width: 40vh;
+    }
+ }

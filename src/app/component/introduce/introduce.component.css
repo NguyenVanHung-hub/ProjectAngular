@@ -1,0 +1,147 @@
+.introduce-wrapper{
+    width: 100%;
+    height: auto;
+    
+}
+.introdu{
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 50px 200px;
+}
+.intro-tex{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.intro-tex h3{
+    font-size: 28px;
+    line-height: 37px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+.intro-tex p{
+    
+    font-size: 14px;
+    line-height: 22px;
+    color: #333333;
+    font-weight: 400;
+}
+.intro-img{
+   width: 50%;
+}
+.intro-img img{
+    width: 100%;
+}
+.introduce-top .intro-tex .tex{
+    padding-right: 20%;
+}
+.more a{
+    margin-top: 30px;
+    display: inline-block;
+    padding: 12px 45px;
+    border: 1px solid #000000;
+    font-size: 15px;
+    line-height: 21px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #000000;
+    text-decoration: none;
+}
+.introduce-top .intro-tex hr{
+    width: 40%;
+    height: 1px;
+    background-color: #000000;
+    border: none;
+}
+.introduce-bottom .intro-tex{
+    padding-left: 10%;
+}
+hr.dotted {
+    border: 0;
+    height: 0;
+    border-top: 2px dotted #000;
+    margin: 20px 0;
+  }
+.introduce-img{
+    background-image: url('https://oldsailor.com.vn/vnt_upload/about/ab5_2.jpg');
+    
+    width: 100%;
+    height: 90vh;
+    background-size:cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.intro-img-nd{
+    padding: 20px 50px;
+    background-color: aliceblue;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.intro-img-nd h3{
+    align-items: center;
+    font-size: 35px;
+    line-height: 55px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.intro-img-nd p{
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+}
+
+
+
+
+/* Responsive */
+@media only screen and (max-width:1300px) {
+    .introdu{
+        padding: 100px;
+    }
+}
+@media only screen and (max-width:991px) {
+    .introdu{
+        padding: 50px;
+    }
+}
+@media only screen and (max-width:677px) {
+    .introdu{
+        padding: 50px 5px;
+        flex-direction: column;
+    }
+    .intro-tex{
+        width: 100%;
+    }
+    .intro-img{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .introduce-top .intro-tex .tex{
+        padding-right: 0;
+    }
+    .introduce-top .intro-tex{
+        order: 2;
+    }
+    .introduce-top .intro-img{
+        order: 1;
+    }
+    .introduce-bottom .intro-tex{
+        padding-left: 0;
+    }
+    .intro-img-nd{
+        padding: 10px;
+       
+    }
+    .intro-img-nd h3{
+        font-size: 28px;
+    }
+    .intro-img-nd p{
+        font-size: 14px;
+    }
+}
