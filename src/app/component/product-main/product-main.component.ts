@@ -72,7 +72,8 @@ export class ProductMainComponent implements OnInit,OnDestroy{
       this.shopDataService.triggerCssChange(true);
       const {id, img, name, price } = item;
       const exists = this.cartItems.some(product => product.id === id);
-
+      
+      
     
     if (!exists) {
       

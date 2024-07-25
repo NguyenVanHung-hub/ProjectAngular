@@ -1,0 +1,52 @@
+<div class="singeIn-wrapper">
+    <div class="singeIn-title">
+        <div class="singeIn">
+            <a href="/SingeIn">
+                <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+                <p>Dang Nhap</p>
+            </a>
+        </div>
+        <div class="resgiter">
+            <a href="/Resgiter">
+                <i class="fa-duotone fa-solid fa-user"></i>
+            <p>Dang Ky</p>
+            </a>
+        </div>
+    </div>
+    <div class="singeIn-Form">
+        <form #loginForm="ngForm" (ngSubmit)="formLogIn(loginForm)">
+            <div class="form-email">
+                <p>Email</p>
+                <input  name="gmail" [(ngModel)]="email" class="input" type="email">
+            </div>
+            <div class="form-password">
+                <p>Mat Khau</p>
+                <input class="input" name="password" [(ngModel)]="password" type="password">
+            </div>
+            <div class="checkbox">
+                <label for="ch_remember">
+                    <input type="checkbox">
+                    Ghi nho dang nhap
+                </label>
+                <p>|</p>
+                <a href="#">Quen mat khau</a>
+            </div>
+            <div class="submit">
+                <button type="submit">Dang Nhap</button>
+            </div>
+        </form>
+        
+        <div class="another-login">
+            <p>Hoac dang nhap bang</p>
+            <div class="login-face-goole">
+                <a href="#">
+                <img src="https://oldsailor.com.vn/modules/member/images/i-face.jpg" alt="anh Facebook">
+                </a>
+                <a href="#">
+                <img src="https://oldsailor.com.vn/modules/member/images/i-gmail.jpg" alt="anh Google">
+                </a>
+            </div>
+        </div>
+    </div>
+    
+</div>

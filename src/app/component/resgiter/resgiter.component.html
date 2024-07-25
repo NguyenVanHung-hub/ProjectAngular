@@ -1,0 +1,68 @@
+<div class="singeIn-wrapper">
+    <div class="singeIn-title">
+        <div class="singeIn">
+            <a href="/SingeIn">
+                <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+                <p>Dang Nhap</p>
+            </a>
+        </div>
+        <div class="resgiter">
+            <a href="/Resgiter">
+                <i class="fa-duotone fa-solid fa-user"></i>
+            <p>Dang Ky</p>
+            </a>
+        </div>
+    </div>
+    <div class="singeIn-Form">
+        <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
+            <div class="form-name">
+                <p>Ho va Ten</p>
+                <input class="input" name="username" required minlength="6" [(ngModel)]="name" #loiun="ngModel" type="text">
+                <b class="text-primary" *ngIf="loiun.errors?.['required'] && loiun.touched">Chưa nhập username</b>
+                <b class="text-info" *ngIf="loiun.errors?.['minlength'] && loiun.touched">Nhập ít nhất 6 ký tự</b>
+            </div>
+            <div class="form-phone">
+                <p>So dien thoai</p>
+                <input class="input" name="phone" required [(ngModel)]="phone" #loiphone="ngModel" type="tel">
+                <b class="text-primary" *ngIf="loiphone.errors?.['required'] && loiphone.touched">Chưa nhập số điện thoại</b>
+            </div>
+            <div class="form-email">
+                <p>Email</p>
+                <input class="input" name="gmail" required [(ngModel)]="email" #loigmail="ngModel" type="email">
+                <b class="text-primary" *ngIf="loigmail.errors?.['required'] && loigmail.touched">Chưa nhập email</b>
+            </div>
+            <div class="form-password">
+                <p>Mat Khau</p>
+                <input class="input" name="password" required minlength="6" [(ngModel)]="password" #loipw="ngModel" type="password">
+                <b class="text-primary" *ngIf="loipw.errors?.['required'] && loipw.touched">Chưa nhập mật khẩu</b>
+                <b class="text-info" *ngIf="loipw.errors?.['minlength'] && loipw.touched">Nhập ít nhất 6 ký tự</b>
+            </div>
+            <div class="form-password">
+                <p>Nhap lai mat khau</p>
+                <input class="input" name="confirmPassword" required [(ngModel)]="confirmPassword" #loiConfirmPw="ngModel" type="password">
+                <b class="text-primary" *ngIf="loiConfirmPw.errors?.['required'] && loiConfirmPw.touched">Chưa nhập lại mật khẩu</b>
+                <b class="text-info" *ngIf="password !== confirmPassword && loiConfirmPw.touched">Mật khẩu không khớp</b>
+            </div>
+            <div class="checkbox">
+                <label for="ch_remember">
+                    <input type="checkbox">
+                    Toi dong y voi dieu khoan dich vu va chinh sach bao mat.
+                </label>
+            </div>
+            <div class="submit">
+                <button type="submit" [disabled]="password !== confirmPassword || !registerForm.valid">Dang Ky</button>
+            </div>
+        </form>
+        <div class="another-login">
+            <p>Hoac dang nhap bang</p>
+            <div class="login-face-goole">
+                <a href="#">
+                    <img src="https://oldsailor.com.vn/modules/member/images/i-face.jpg" alt="anh Facebook">
+                </a>
+                <a href="#">
+                    <img src="https://oldsailor.com.vn/modules/member/images/i-gmail.jpg" alt="anh Google">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
