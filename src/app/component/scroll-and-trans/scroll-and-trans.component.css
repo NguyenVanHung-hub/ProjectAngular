@@ -1,0 +1,32 @@
+.scroll-trans{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 99999999;
+    background-color: black;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 20px;
+}
+
+.icon{
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+}
+.trans{
+    position: relative;
+}
+.trans-setting{
+    padding: 5px;
+    background-color: black;
+    position: absolute;
+    top: -360%;
+    left: -600%;
+    display: none;
+    /* display: none; */
+}

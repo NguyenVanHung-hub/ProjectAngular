@@ -1,0 +1,39 @@
+.update-admin-wrapper{
+    width: 100%;
+    display: flex;
+}
+.menu-admin-comm{
+    position: fixed;
+    width: 20%;
+    top: 11.5%;
+}
+.update-conten-wrapper{
+    width: 100%;
+    margin-left: 20%;
+   margin-top: 5.5%;
+}
+.form{
+   padding: 50px 30px ; 
+}
+.form h2{
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+.form form {
+    font-size: 18px;
+}
+.form form div p {
+    margin-bottom: 5px;
+}
+.form form div input{
+    width: 80%;
+    padding: 5px;
+    margin-bottom:40px;
+}
+.buttom button{
+    padding: 5px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+}

@@ -1,0 +1,38 @@
+<div class="update-admin-wrapper">
+    <div class="menu-admin-comm">
+        <app-menu-admin></app-menu-admin>
+    </div>
+    <div class="update-conten-wrapper">
+        <div class="form">
+            <h2>{{ isEdit ? 'Sửa Sản Phẩm' : 'Thêm Sản Phẩm' }}</h2>
+            <form #updateForm="ngForm" (ngSubmit)="submit(updateForm.value)">
+                <div class="name">
+                    <p>Ten:</p>
+                    <input type="text" name="title" [(ngModel)]="title" placeholder="Nhap ten san pham">
+                </div>
+                <div class="img">
+                    <p>Img:</p>
+                    <input type="text" name="image" [(ngModel)]="image" placeholder="Nhap link hinh anh">
+                </div>
+                <div class="price">
+                    <p>Gia:</p>
+                    <input type="number" name="price" [(ngModel)]="price" placeholder="Nhap gia san pham">
+                </div>
+                <div class="catelogy">
+                    <p>Loai:</p>
+                    <input type="text" name="catelogy" [(ngModel)]="catelogy" placeholder="Nhap loai san pham">
+                </div>
+                <div class="conten">
+                    <p>Mo Ta:</p>
+                    <input type="text" name="conten" [(ngModel)]="conten" placeholder="Nhap mo ta san pham">
+                </div>
+                <div class="buttom">
+                    <button type="submit" >{{ isEdit ? 'Cập Nhật' : 'Thêm' }}</button>
+                </div>
+            </form>
+        </div>
+        <app-footer-admin></app-footer-admin>
+    </div>
+
+</div>
+

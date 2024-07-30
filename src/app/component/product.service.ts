@@ -1,11 +1,15 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { User } from '../type/user.type';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  private apiUrl ='https://dnk8d5-8080.csb.app';
 
-  constructor() {}
+  constructor(private http : HttpClient) {}
   //Tạo 1 danh sách sản phẩm
  products = [
    {id:1, name: 'sản phẩm 1', price: 12000,  mota: 'day la mot san pham dep, phuf hop voi moi nguoi' , img :'https://oldsailor.com.vn/vnt_upload/product/c224b6ca-9f1c-49a5-9d5f-fc45f05dd12f.jpg'},
@@ -29,4 +33,28 @@ export class ProductService {
   
    return this.products;
  }
+
+ getProductById(id: number): Observable<User> {
+  return this.http.get<User>(`${this.apiUrl}/products/${id}`);
+}
+
+ getUser(): Observable<User[]>{
+  return this.http.get<User[]>(`${this.apiUrl}/products`)
+ }
+ 
+ // Thêm sản phẩm mới vào API
+ addProduct(newProduct: User): Observable<User> {
+  return this.http.post<User>(`${this.apiUrl}/products`, newProduct);
+}
+
+  // Cap nhat san pham moi
+  updateProduct(id: number, product: User): Observable<User> {
+    return this.http.put<User>(`${this.apiUrl}/products/${id}`, product);
+  }
+
+  // xoa san pham
+  deleteProduct(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/products/${id}`);
+  }
+
 }

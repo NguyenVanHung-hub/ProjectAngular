@@ -1,0 +1,20 @@
+<div class="scroll-trans">
+  <div class="trans icon" >
+    <i class="fa-solid fa-language" (click)="changeDisplay()"></i>
+    <div class="trans-setting" #display>
+      <p>Cai dat </p>
+      <div class="setting">
+        <p>Ngon ngu dich</p>
+        <select >
+          <option value="vi">Tieng Viet</option>
+          <option value="en">Tieng Anh</option>
+          <option value="zh">Tieng Trung</option>
+          <option value="ko">Tieng Han</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="scroll icon" (click)="onScroll()">
+    <i class="fa-solid fa-chevron-up"></i>
+  </div>
+</div>
