@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, Renderer2, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ShopDataService } from '../shop-data.service';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
   private dataSubscription: Subscription = new Subscription();
   private cssChangeSubscription: Subscription = new Subscription();
 
-  constructor(private renderer: Renderer2, private shopDataService: ShopDataService) {}
+  constructor(private renderer: Renderer2, private shopDataService: ShopDataService, private router: Router) {}
 
   changeStyle(): void {
     if (this.paragraph) {
@@ -92,5 +92,16 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+  }
+
+
+  // cn Tim kiem
+  
+  search:string='';
+  searchXuLy(item: string){
+  
+   
+    this.router.navigate(['/product'], { queryParams: { search: item.search} });
+    
   }
 }

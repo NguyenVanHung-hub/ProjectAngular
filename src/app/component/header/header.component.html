@@ -37,7 +37,12 @@
             <a href="#"><img src="" alt="anhlogo"></a>
         </div>
        <div class="search">
-            <input type="search" placeholder="Tim Kiem">
+            <form #searchForm="ngForm" (ngSubmit)="searchXuLy(searchForm.value)">
+                <input name="search" [(ngModel)]="search" type="search" placeholder="Tim Kiem">
+                <button type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
        </div>
         <div class="SingeIn-Out">
             

@@ -37,10 +37,8 @@ export class ProAdminContenComponent implements OnInit{
 
   edit(id: number | undefined){
     if (id !== undefined) {
-      console.log(id);
       this.productService.getProductById(id).subscribe(
         (User) => {
-          console.log('Sản phẩm để sửa:', User);
           this.router.navigate(['/Update'], { queryParams: { id: id } });
         },
         (error) => {
@@ -58,7 +56,7 @@ export class ProAdminContenComponent implements OnInit{
       this.productService.deleteProduct(id).subscribe(
         () => {
           alert('Xóa thành công');
-          this.getUserFromApi(); // Cập nhật lại danh sách sản phẩm sau khi xóa
+          this.getUserFromApi(); 
         },
         (error) => {
           alert('Lỗi khi xóa sản phẩm:');

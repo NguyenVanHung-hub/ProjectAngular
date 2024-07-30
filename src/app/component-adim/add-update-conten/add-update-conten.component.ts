@@ -23,6 +23,7 @@ export class AddUpdateContenComponent implements OnInit{
   id: number | undefined;
   constructor(private productService: ProductService, private router: Router,private route: ActivatedRoute){}
 
+  // lay id san khi an nut sua
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       if (params['id']) {
@@ -33,6 +34,7 @@ export class AddUpdateContenComponent implements OnInit{
     });
   }
 
+  // lay thong tin san pham thong qua id
   loadProduct(id: number): void {
     this.productService.getProductById(id).subscribe(
       (product: User) => {
@@ -56,6 +58,8 @@ export class AddUpdateContenComponent implements OnInit{
       image: this.image,
       catelogy: this.catelogy
     };
+
+    // sua san pham neu co thong tin id tren url
     if (this.isEdit && this.id !== undefined) {
       this.productService.updateProduct(this.id, newProduct).subscribe(
         (response) => {
@@ -67,7 +71,9 @@ export class AddUpdateContenComponent implements OnInit{
           console.log(error);
         }
       );
-    } else{
+    } 
+    // neu tren url khong co id se thanh them san pham moi
+    else{
       this.productService.addProduct(newProduct).subscribe(
         (response) => {
           alert('Them thanh cong');
