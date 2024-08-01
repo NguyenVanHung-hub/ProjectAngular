@@ -1,0 +1,209 @@
+.pay{
+    width: 100%;
+    height: auto;
+    padding: 50px 100px;
+    background-color: rgb(0, 0, 0,.06);
+}
+.pay h2{
+    font-size: 35px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.pay-main{
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+.pay-form{
+    width: 50%;
+}
+.pay-lef-item{
+    margin-bottom: 30px;
+    
+}
+.pay-lef-item h3{
+    text-transform: capitalize;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+.pay-lef-item input{
+    font-size: 18px;
+    padding: 5px;
+}
+.pay-lef-item label{
+    font-size: 18px;
+    margin-right: 20px;
+}
+.pay-lef-item select{
+    width: 30%;
+    font-size: 18px;
+    padding: 5px;
+    margin-right: 5px;
+}
+.pay-lef-item textarea{
+    font-size: 18px;
+    padding: 5px;
+    
+}
+.in{
+    width: 40%;
+    margin-right: 10%;
+   
+    margin-bottom: 20px;
+}
+.pay-lef-item .input{
+    width: 30%;
+    padding: 4px;
+}
+.pay-product{
+    width: 50%;
+    height: auto;
+}
+.pay-product h3{
+    text-transform: capitalize;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 25px;  
+}
+.pay-product-item{
+    display: flex;
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+.img{
+    width: 50%;
+}
+.img img{
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+}
+.product-ditel{
+    margin-left: 20px;
+}
+.product-ditel span{
+    display: inline-block;
+    min-width: 100px;
+}
+.sum{
+    font-size: 30px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sum span{
+    margin-left: 10px;
+}
+
+.pay-buttom{
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.pay-buttom button{
+    border: none;
+    border-radius: 20px;
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+}
+
+
+
+/* Responsive */
+
+@media only screen and (max-width: 991px) {
+    .pay{
+        padding: 50px;
+    }
+    .pay-main{
+        flex-direction: column;
+    }
+    .pay-form{
+        width: 100%;
+    }
+    .pay-product{
+        width: 100%;
+    }
+    .div{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .pay-product-item{
+        width: 50%;
+        font-size: 16px;
+    }
+    .product-ditel span{
+        display: inline-block;
+        min-width: 70px;
+    }
+}
+
+@media only screen and (max-width: 677px) {
+    .pay{
+        padding: 50px 5px;
+        
+    }
+    .pay h2{
+        font-size: 30px;
+    }
+    .textarea{
+        width: 90%;
+    }
+    .pay-lef-item h3{
+       
+        font-size: 24px;   
+    }
+    .pay-lef-item h3{
+       
+        font-size: 24px;
+      
+    }
+    .pay-lef-item input{
+        font-size: 14px;
+       
+    }
+    .pay-lef-item label{
+        font-size: 14px;
+       
+    }
+    .pay-lef-item select{
+       
+        font-size: 14px;
+        
+    }
+    .pay-lef-item textarea{
+        font-size: 14px;
+        
+        
+    }
+
+    .pay-product h3{
+        font-size: 24px;
+    }
+    .pay-product-item{
+        flex-direction: column;
+    }
+    .pay-product-item .product-ditel{
+        margin: 0;
+    }
+    .product-ditel {
+        font-size: 14px;
+    }
+    .product-ditel span{
+        display: inline-block;
+        min-width: 50px;
+    }
+    .sum{
+        font-size: 24px;
+    }
+    .pay-buttom{
+        font-size: 24px;
+    }
+}

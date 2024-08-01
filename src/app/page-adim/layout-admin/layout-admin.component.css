@@ -1,0 +1,15 @@
+.home-admin-conten{
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+.menu-admin-comm{
+    position: fixed;
+    width: 20%;
+    top: 11.5%;
+}
+
+.main-conten-wrapper{
+    margin-left: 20%;
+    margin-top: 5.5%;
+}

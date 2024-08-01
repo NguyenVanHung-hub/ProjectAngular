@@ -12,6 +12,6 @@ export class MenuAdminComponent {
   constructor(private router: Router){};
   logout() {
     localStorage.removeItem('token');
-    this.router.navigate(['/']);
+    window.location.href = '/';
   }
 }

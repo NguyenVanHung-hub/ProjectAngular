@@ -8,7 +8,11 @@ export class ShopDataService {
 
   private readonly localStorageKey = 'cartItems';
   private dataSubject = new BehaviorSubject<any[]>(this.loadFromLocalStorage());
+  private sumSource = new BehaviorSubject<number>(0);
   data$ = this.dataSubject.asObservable();
+  currentSum = this.sumSource.asObservable();
+
+  constructor() {}
 
   private loadFromLocalStorage(): any[] {
     const data = localStorage.getItem(this.localStorageKey);
@@ -24,12 +28,21 @@ export class ShopDataService {
     this.saveToLocalStorage(data);
   }
 
-
-  // Service lưu sự kiện onClick
-  private cssChangeSubject = new BehaviorSubject<boolean>(false);
-  cssChange$ = this.cssChangeSubject.asObservable();
-
-  triggerCssChange(state: boolean) {
-    this.cssChangeSubject.next(state);
+  getCartItems(): any {
+    const cartItems = localStorage.getItem(this.localStorageKey);
+    if (cartItems) {
+      return JSON.parse(cartItems);
+    }
+    return { items: [], summary: { totalQuantity: 0, totalPrice: 0 } };
   }
+
+  changeSum(sum: number): void {
+    this.sumSource.next(sum);
+  }
+  private cssChangeSubject = new BehaviorSubject<boolean>(false);
+cssChange$ = this.cssChangeSubject.asObservable();
+
+triggerCssChange(state: boolean) {
+  this.cssChangeSubject.next(state);
+}
 }

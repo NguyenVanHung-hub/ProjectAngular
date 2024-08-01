@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
 import { CommonModule } from '@angular/common';
+import { User } from '../../type/user.type';
 @Component({
   selector: 'app-pro-detaill',
   standalone: true,
@@ -12,10 +13,10 @@ import { CommonModule } from '@angular/common';
 export class ProDetaillComponent {
   products: any[]=[];
   productId: any | null = '';
-  productDetail: any;
+  productDetail: User | undefined;
 
   constructor(private route: ActivatedRoute, private productService: ProductService) { 
-    this.products = productService.getProduct()
+    
   }
 
   ngOnInit(): void {
@@ -24,8 +25,19 @@ export class ProDetaillComponent {
       this.productId = params.get('id');
       this.findProduct();
     });
+    this.loadProducts();
   }
-
+  loadProducts(): void {
+    this.productService.getUser().subscribe({
+      next: (data: User[]) => {
+        this.products = data;
+        this.findProduct();
+      },
+      error: (error) => {
+        console.error('Error fetching products:', error);
+      }
+    });
+  }
   findProduct(): void {
     if (this.productId) {
       this.productDetail = this.products.find(product => product.id == this.productId);

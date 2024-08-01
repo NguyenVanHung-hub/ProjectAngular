@@ -1,0 +1,85 @@
+<div class="pay">
+  <h2>Than toan don hang</h2>
+  <div class="pay-main">
+    <div class="pay-form">
+      <form action="">
+        <div class="pay-lef-item">
+          <h3>Thông Tin Khách hàng</h3>
+          <input class="in" type="text" placeholder="Họ và Tên" />
+          <input class="in" type="text" placeholder="Số Điên Thoại" /><br />
+          <input
+            class="w3-radio"
+            type="radio"
+            name="GioiTinh"
+            value="Nam"
+            checked
+          />
+          <label class="tex">Nam</label>
+
+          <input class="w3-radio" type="radio" name="GioiTinh" value="Nu" />
+          <label class="tex">Nữ</label>
+        </div>
+        <div class="pay-lef-item">
+          <h3>Địa Chỉ Nhận Hàng</h3>
+          <select id="city">
+            <option value="macdinh">Quận,Huyện</option>
+            <option value="saab">Hai Bà Trưng</option>
+            <option value="vw">Than Xuân</option>
+            <option value="audi">Hoàng Mai</option>
+          </select>
+          <select id="phuong">
+            <option value="macdinh">Phường,Xã</option>
+            <option value="saab">Hoàng Liệt</option>
+            <option value="vw">Phương Mai</option>
+            <option value="audi">Khương Đình</option>
+          </select>
+          <input class="input" type="text" placeholder="Số nhà, Đường, Phố" />
+        </div>
+        <div class="pay-lef-item">
+          <h3>Ghi Chú</h3>
+          <textarea class="textarea"
+            name=""
+            id=""
+            cols="70%"
+            rows="5%"
+            placeholder="Ghi Chu Tai Day"
+          ></textarea>
+        </div>
+        <div class="pay-lef-item">
+          <h3>Phương Thức Thanh Toán</h3>
+          <input class="w3-radio" type="radio" name="phuo" value="tien" />
+          <label class="tex">Tiền Mặt</label>
+          <input class="w3-radio" type="radio" name="phuo" value="the" />
+          <label class="tex">Thẻ</label>
+          <input class="w3-radio" type="radio" name="phuo" value="momo" />
+          <label class="tex">MOMO</label>
+        </div>
+      </form>
+    </div>
+    <div class="pay-product">
+      <h3>Thong tin san pham</h3>
+      <div class="div">
+        <div
+          class="pay-product-item"
+          *ngFor="let item of cartItems; let i = index"
+        >
+          <div class="img">
+            <img src="{{ item.image }}" alt="anh " />
+          </div>
+          <div class="product-ditel">
+            <p><span>name:</span> {{ item.title }}</p>
+            <p><span>gia:</span> {{ item.price | currency : "VND" }}</p>
+            <p><span>so luong:</span> {{ item.quantity }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="sum">
+        Tong:
+        <span>{{ sum | currency : "VND" }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="pay-buttom">
+    <button (click)="completePay()">Thanh Toan</button>
+  </div>
+</div>

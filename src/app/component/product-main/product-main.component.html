@@ -15,13 +15,13 @@
                         <div class="product-img" 
                             (mouseenter)="setHoverState(i, true)"
                             (mouseleave)="setHoverState(i, false)">
-                            <img src="{{item.img}}" alt="">
+                            <img src="{{item.image}}" alt="">
                             <div class="product-Description" *ngIf="isHovered(i)">
-                                {{item.mota}}
+                                {{item.conten}}
                             </div>
                         </div>
                         <div class="product-tex">
-                            <a [routerLink]="['/product', item.id]"><p>{{item.name}}</p></a>
+                            <a [routerLink]="['/product', item.id]"><p>{{item.title}}</p></a>
                             <p>{{item.price}}vnd</p>
                         </div>
                         <div class="buy">

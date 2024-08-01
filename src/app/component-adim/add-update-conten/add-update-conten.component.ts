@@ -64,7 +64,7 @@ export class AddUpdateContenComponent implements OnInit{
       this.productService.updateProduct(this.id, newProduct).subscribe(
         (response) => {
           alert('Cập nhật thành công');
-          this.router.navigate(['/ProductAdmin']);
+          this.router.navigate(['/Admim/Product']);
         },
         (error) => {
           alert('Lỗi khi cập nhật sản phẩm:');
@@ -78,7 +78,7 @@ export class AddUpdateContenComponent implements OnInit{
         (response) => {
           alert('Them thanh cong');
   
-          this.router.navigate(['/ProductAdmin']);
+          this.router.navigate(['/Admim/Product']);
         },
         (error) => {
           alert('Lỗi khi thêm sản phẩm:');

@@ -92,6 +92,19 @@
     flex-direction: column;
     align-items: center;
 }
+
+.pay{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.pay button{
+    border: none;
+    background-color: red;
+    padding: 3px 7px;
+    font-size: 20px;
+    color: white;
+}
 .menu-moblie{
     display: none;
 }
@@ -158,6 +171,48 @@
     position: relative;
     cursor: pointer;
     
+}
+.user{
+    position: relative;
+    margin-right: 40px;
+    cursor: pointer;
+
+}
+.form-user{
+    position: absolute;
+    z-index: 99999;
+    display: none;
+    border: 1px solid;
+    padding: 5px;
+    background-color: white;
+    top: 98%;
+    right: -730%;
+    min-width: 300px;
+}
+.form-icon{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.form-icon h3{
+    font-size: 24px;
+}
+.form-user div span{
+    display: inline-block;
+    min-width: 60px;
+    font-size: 20px;
+}
+.form-user div input{
+    font-size: 20px;
+    border: none;
+}
+.form-user .exit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-user .exit button{
+    background-color: rgba(0, 0, 0, .1);
 }
 .shop-number{
     position: absolute;

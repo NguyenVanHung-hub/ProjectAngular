@@ -23,8 +23,15 @@ export class SingeInComponent {
         response => {
           console.log('Dang Nhap Thanh Cong', response);
           if (response && response.user) {
-            localStorage.setItem('token', response.user.token);
-            this.router.navigate(['/AdmimHome']);
+            // localStorage.setItem('token', response.user.token);
+            console.log(this.email,this.password);
+            if( this.email === 'admin@admin.com' && this.password === 'admin'){
+              this.router.navigate(['/Admim/Home']);
+            }else{
+              this.router.navigate(['/']);
+            }
+            
+            
           }
         },
         error => {

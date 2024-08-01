@@ -30,7 +30,9 @@
     "express": "^4.18.2",
     "moment": "^2.30.1",
     "ngx-pagination": "^6.0.3",
+    "ngx-swiper-wrapper": "^10.0.0",
     "rxjs": "~7.8.0",
+    "swiper": "^11.1.9",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
   },

@@ -34,6 +34,8 @@
     cursor: pointer;
 }
 .product-Description{
+    width: 96%;
+   
     position: absolute;
     bottom: 0;
     padding-bottom: 5px;

@@ -6,3 +6,5 @@ export interface User{
     price: number,
     conten:string
 }
+
+

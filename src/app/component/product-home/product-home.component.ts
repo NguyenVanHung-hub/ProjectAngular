@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { ShopDataService } from '../shop-data.service';
 import { Subscription } from 'rxjs';
+import { User } from '../../type/user.type';
 
 @Component({
   selector: 'app-product-home',
@@ -15,12 +16,38 @@ import { Subscription } from 'rxjs';
 })
 export class ProductHomeComponent implements OnInit,OnDestroy{
   shopProduct: any[] = [];
-  products: any;
+  products: User[]=[];
+  homeProducts: User[]=[];
   constructor(
     private productService: ProductService, 
     private router: Router,
-    private shopdataService: ShopDataService) {
-    this.products = productService.getProduct().slice(0, 8);
+    private shopDataService: ShopDataService) {
+    
+  }
+  private dataSubscription: Subscription = new Subscription();
+
+  ngOnInit(): void {
+    this.loadProducts();
+    this.dataSubscription = this.shopDataService.data$.subscribe(data => {
+      this.shopProduct = data;
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.dataSubscription.unsubscribe();
+    
+  }
+
+  loadProducts(): void {
+    this.dataSubscription.add(
+      this.productService.getUser().subscribe(data => {
+        this.products = data;
+        this.homeProducts=this.products.slice(0, 8)
+        // console.log('Loaded products:', this.homeProducts);
+      }, error => {
+        console.error('Error fetching products:', error);
+      })
+    );
   }
   viewProductDetail(id: string) {
     this.router.navigate(['/product', id]); 
@@ -36,56 +63,22 @@ export class ProductHomeComponent implements OnInit,OnDestroy{
   }
 
   
-  // onBuyClick(item: any) {
-  //   const {id, img, name, price } = item;
-    
-  //   const exists = this.shopProduct.some(product => product.id === id);
+  onBuyClick(item: any) {
+    this.shopDataService.triggerCssChange(true);
+    const { id, image, title, price } = item;
+    const exists = this.shopProduct.some(product => product.id === id);
 
-    
-  //   if (!exists) {
-      
-  //     this.shopProduct.push({ id, img, name, price });
-  //     this.sendData();
-  //     // alert('san pham dax duoc them vao gio hang')
-  //   } else {
-  //     alert('San pham da co trong gio hang');
-  //   }   
-  // }
-  // sendData() {
-  //   this.shopdataService.setDataArray(this.shopProduct);
-  //   console.log('du lieu da gui' ,this.shopProduct);
-  // }
- 
-  private dataSubscription: Subscription = new Subscription();
-    ngOnInit(): void {
-      this.dataSubscription = this.shopdataService.data$.subscribe(data => {
-        this.shopProduct = data;
-      });
-      
-      
-    }
-  
-    ngOnDestroy(): void {
-      this.dataSubscription.unsubscribe();
-    }
-
-    onBuyClick(item: any){
-      this.shopdataService.triggerCssChange(true);
-      const {id, img, name, price } = item;
-      const exists = this.shopProduct.some(product => product.id === id);
-
-    
     if (!exists) {
-      
-      this.shopProduct.push({ id, img, name, price });
+      this.shopProduct.push({ id, image, title, price });
       this.sendData();
-      
-      
     } else {
-      alert('San pham da co trong gio hang');
-    }   
+      alert('Sản phẩm đã có trong giỏ hàng');
+    }
   }
+
   sendData() {
-    this.shopdataService.setDataArray(this.shopProduct);
+    this.shopDataService.setDataArray(this.shopProduct);
+    console.log('du lieu da gui' ,this.shopProduct);
   }
+  
 }

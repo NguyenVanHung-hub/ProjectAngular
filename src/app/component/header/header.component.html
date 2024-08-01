@@ -10,10 +10,10 @@
             </div>
             <div class="shop-product" *ngFor="let item of receivedDataArray; let i = index">
                 <div class="shop-produ-img">
-                    <img src="{{item.img}}" alt="">
+                    <img src="{{item.image}}" alt="">
                 </div>
                 <div class="shop-pro-tex">
-                    <p>Ten: {{item.name}}</p>
+                    <p>Ten: {{item.title}}</p>
                     <p>Gia: {{item.price}}</p>
                 </div>
                 <div class="shop-pro-input">
@@ -28,6 +28,10 @@
             <div class="shop-pro-price">
                 <p>Tong</p>
                 <p>{{Sum}}</p>
+            </div>
+
+            <div class="pay">
+                <button (click)="handelClick()">Thanh Toan</button>
             </div>
         </div>
         
@@ -46,7 +50,33 @@
        </div>
         <div class="SingeIn-Out">
             
-            <a href="/SingeIn"><button class="SingeIn">Dang Nhap</button></a>
+            <div class="singIn" *ngIf="!isUserAuthenticated">
+                <a href="/SingeIn"><button class="SingeIn">Dang Nhap</button></a>
+            </div>
+            <div class="user" *ngIf="isUserAuthenticated">
+                <i class="fa-duotone fa-solid fa-user" (click)=" onClickuser()"></i>
+                <form class=" form-user" #clickUser>
+                    <div class="form-icon">
+                        <h3>Thong tin nguoi dung:</h3>
+                        <i class="fa-sharp-duotone fa-solid fa-circle-xmark" (click)=" onClickuser2()"></i>
+                    </div>
+                    <div class="name">
+                        <span>Ten:</span>
+                        <input type="text">
+                    </div>
+                    <div class="email">
+                        <span>Email:</span>
+                        <input type="text">
+                    </div>
+                    <div class="phone">
+                        <span>Sdt:</span>
+                        <input type="text">
+                    </div>
+                    <div class="exit">
+                        <button (click)="logout()">Dang Xuat</button>
+                    </div>
+                </form>
+            </div>
             <div class="shop" (click) = "changeStyleShop()">
                 <i class="fa-solid fa-shop"></i>
                 <div class="shop-number">

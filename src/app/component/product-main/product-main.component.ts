@@ -7,6 +7,7 @@ import { RouterLink } from '@angular/router';
 import { ShopDataService } from '../shop-data.service';
 import { Subscription } from 'rxjs';
 import * as diacritics from 'diacritics';
+import { User } from '../../type/user.type';
 @Component({
   selector: 'app-product-main',
   standalone: true,
@@ -15,16 +16,34 @@ import * as diacritics from 'diacritics';
   styleUrl: './product-main.component.css'
 })
 export class ProductMainComponent implements OnInit,OnDestroy{
-  products: any[];
+  
   cartItems: any[] = [];
+  products: User[]=[];
   currentPage: number = 1; 
   itemsPerPage: number = 8;
-  filteredProducts: any[] = [];
+  filteredProducts: User[] = [];
   constructor(private productService: ProductService, private router: Router,private shopDataService: ShopDataService, private route: ActivatedRoute) {
-    this.products = productService.getProduct();
-    this.filteredProducts = [...this.products];
+    
   }
-   
+  private dataSubscription: Subscription = new Subscription();
+  private productSubscription: Subscription = new Subscription();
+  ngOnInit(): void {
+    this.productSubscription = this.productService.getUser().subscribe(data => {
+      this.products = data;
+      this.filteredProducts = [...this.products];
+      this.handleRouteParams();
+    });
+
+    this.dataSubscription = this.shopDataService.data$.subscribe(data => {
+      this.cartItems = data;
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.dataSubscription.unsubscribe();
+    this.productSubscription.unsubscribe();
+  }
+
   viewProductDetail(id: string) {
     this.router.navigate(['/product', id]); 
   }
@@ -59,43 +78,24 @@ export class ProductMainComponent implements OnInit,OnDestroy{
     this.filteredProducts.sort((a, b) => b.price - a.price);
   }
   
-    
-    private dataSubscription: Subscription = new Subscription();
-    ngOnInit(): void {
-      this.dataSubscription = this.shopDataService.data$.subscribe(data => {
-        this.cartItems = data;
-        this.products = this.productService.getProduct();
-        this.filteredProducts = [...this.products]; // Initialize filteredProducts
-        this.handleRouteParams();
-      });
-    }
-    
-  
-    ngOnDestroy(): void {
-      this.dataSubscription.unsubscribe();
-    }
 
     onBuyClick(item: any){
       this.shopDataService.triggerCssChange(true);
-      const {id, img, name, price } = item;
-      const exists = this.cartItems.some(product => product.id === id);
-      
-      
-    
+      const {id, image, title, price } = item;
+      const exists = this.cartItems.some(product => product.id === id); 
     if (!exists) {
-      
-      this.cartItems.push({ id, img, name, price });
+      this.cartItems.push({ id, image, title, price });
       this.sendData();
-      
       
     } else {
       alert('San pham da co trong gio hang');
     }   
   }
+
+
   sendData() {
     this.shopDataService.setDataArray(this.cartItems);
   }
-
 
   // cn tim kiem
   search: string='';
@@ -115,20 +115,17 @@ export class ProductMainComponent implements OnInit,OnDestroy{
       this.filteredProducts = [...this.products];
       return;
     }
-  
     // Normalize search query (convert to lower case, remove diacritics, and trim)
     const normalizedSearch = diacritics.remove(search.toLowerCase().trim());
-  
     this.filteredProducts = this.products.filter(product => {
       // Normalize product name (convert to lower case, remove diacritics, and trim)
-      const normalizedProductName = diacritics.remove(product.name.toLowerCase().trim());
+      const normalizedProductName = diacritics.remove(product.title.toLowerCase().trim());
       return normalizedProductName.includes(normalizedSearch);
     });
-  
-    console.log('Search value:', search);
-    console.log('Filtered Products:', this.filteredProducts);
-    console.log('Normalized Search:', normalizedSearch);
-    console.log('Product Names:', this.products.map(p => diacritics.remove(p.name.toLowerCase().trim())));
+    // console.log('Search value:', search);
+    // console.log('Filtered Products:', this.filteredProducts);
+    // console.log('Normalized Search:', normalizedSearch);
+    // console.log('Product Names:', this.products.map(p => diacritics.remove(p.title.toLowerCase().trim())));
   }
   
 }
