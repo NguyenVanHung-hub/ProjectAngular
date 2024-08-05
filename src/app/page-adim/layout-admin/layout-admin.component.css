@@ -2,6 +2,7 @@
     width: 100%;
     height: auto;
     position: relative;
+    margin-top: 85px;
 }
 .menu-admin-comm{
     position: fixed;
@@ -13,3 +14,17 @@
     margin-left: 20%;
     margin-top: 5.5%;
 }
+
+
+
+/* responsive */
+
+@media only screen and (max-width: 991px) {
+    
+    .main-conten-wrapper{
+       margin-left: 0;
+    }
+    
+  
+}
+

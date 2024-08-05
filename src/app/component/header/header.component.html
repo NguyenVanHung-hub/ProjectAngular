@@ -95,8 +95,7 @@
                     <div class="menu-moblie-header">
                         <i class="fa-solid fa-xmark"  (click) = "changeStyle2()"></i>
                         <div class="SingeIn-Out-mobile">
-                            
-                            <button>Dang Nhap</button>
+                            <a routerLink="/SingeIn"><button>Dang Nhap</button></a>
                         </div>
                     </div>
                     <div class="menu-mo">
@@ -118,10 +117,10 @@
     </div>
     <div class="menu-main">
         <ul>
-            <a routerLink="/"><li>Trang Chu</li></a>
-            <a href="/introduce"><li>Gioi Thieu</li></a>
-            <a routerLink="/product"><li>San Pham</li></a>
-            <a href="/contact"><li>Lien He</li></a>
+            <a [ngClass]="{'active': currenMenuMain === '/' }" routerLink="/"><li>Trang Chu</li></a>
+            <a [ngClass]="{'active': currenMenuMain === '/introduce' }" routerLink="/introduce"><li>Gioi Thieu</li></a>
+            <a [ngClass]="{'active': currenMenuMain === '/product' }" routerLink="/product"><li>San Pham</li></a>
+            <a [ngClass]="{'active': currenMenuMain === '/contact' }" routerLink="/contact"><li>Lien He</li></a>
         </ul>
     </div>
 </header>

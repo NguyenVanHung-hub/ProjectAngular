@@ -1,11 +1,40 @@
 <div class="header-admin">
     <div >
-        <a href="#">dashboard</a>
+        <a href="/Admim/Home">dashboard</a>
     </div>
     <div class="input">
         <input type="search" placeholder="Tim Kiem">
     </div>
     <div class="header-admin-right">
         <i class="fa-solid fa-user"></i>
+        <i (click)="onClick()"  class="fa-solid fa-bars .icon-moblile"></i>
     </div>
 </div>
+<div class="menu-admin-mobile" #onClickMenuAd>
+    <div class="menu-ad-icon">
+      <i (click)="onClickNone()" class="fa-solid fa-xmark"></i>
+    </div>
+    <div class="menu-ad-main">
+      <ul>
+        <a href="/Admim/Home">
+          <li>Tong Quan</li>
+        </a>
+        <a href="/Admim/Product">
+          <li>San pham cua toi</li>
+        </a>
+        <a href="/Admim/File">
+          <li>Ho so</li>
+        </a>
+        <a href="/Admim/Setting">
+          <li>cai dat</li>
+        </a>
+        <a href="/Admim/Hepl">
+          <li>ho tro</li>
+        </a>
+      </ul>
+    </div>
+    <div class="logout">
+      <i (click)="logout()" class="fa-solid fa-right-from-bracket"></i>
+      <button (click)="logout()" >Thoat</button>
+  </div>
+  </div>

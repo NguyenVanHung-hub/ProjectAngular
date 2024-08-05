@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuAdminComponent } from "../menu-admin/menu-admin.component";
-import { FooterAdminComponent } from "../footer-admin/footer-admin.component";
 import { User } from '../../type/user.type';
 import { ProductService } from '../../component/product.service';
 import { NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
-import { state } from '@angular/animations';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-pro-admin-conten',
   standalone: true,
-  imports: [MenuAdminComponent, FooterAdminComponent,NgFor,NgIf],
+  imports: [NgFor,NgIf,NgxPaginationModule],
   templateUrl: './pro-admin-conten.component.html',
   styleUrl: './pro-admin-conten.component.css'
 })
 export class ProAdminContenComponent implements OnInit{
   users: User[] = [];
+  page: number=1;
+  itemPage: number= 15;
   constructor(private productService: ProductService, private router: Router){}
   // call Api
   ngOnInit(): void {
@@ -39,7 +39,7 @@ export class ProAdminContenComponent implements OnInit{
     if (id !== undefined) {
       this.productService.getProductById(id).subscribe(
         (User) => {
-          this.router.navigate(['/Update'], { queryParams: { id: id } });
+          this.router.navigate(['/Admim/Update'], { queryParams: { id: id } });
         },
         (error) => {
           console.error('Lỗi khi lấy thông tin sản phẩm:', error);

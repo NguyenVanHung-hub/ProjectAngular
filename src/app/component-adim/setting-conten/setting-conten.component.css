@@ -1,0 +1,85 @@
+.setting{
+    width: 100%;
+    height: auto;
+    background-color: rgb(0, 0, 0, .1);
+    padding: 50px;
+}
+.setting h2{
+    font-size: 35px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.setting-conten{
+    padding: 33px 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+.menu-setting ul {
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(0, 0, 0, .1);
+}
+.menu-setting ul li{
+    cursor: pointer;
+    font-size: 24px;
+    list-style: none;
+    text-transform: capitalize;
+}
+.setting-form{
+    padding: 0 20px;
+    
+}
+.setting-form h3{
+    font-size: 24px;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+}
+.input-tex{
+    display: flex;
+    flex-direction: column;
+}
+.input-tex input{
+    font-size: 18px;
+    padding: 5px 0 5px 15px;
+    border: 1 px solid;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+.input-file{
+    border: 1px solid;
+    border-radius: 20px;
+}
+.input-buttom button{
+    width: 45%;
+    padding: 5px;
+    font-size: 20px;
+   
+    border-radius: 20px;
+}
+.button-one{
+    border: none;
+    margin-right: 10%;
+    background-color:  rgb(0, 0, 0, .05);;
+    color: #717275;
+    text-transform: uppercase;
+}
+.button-one:hover{
+    background-color: rgb(0, 0, 0, .2);
+   
+    border: none;
+}
+.button-two{
+    text-transform: uppercase;
+    border: none;
+    background-color: #1d3557;
+    color: white;
+}
+.button-two:hover{
+    background-color: #a8dadc;
+    
+}
+ .active{
+    border-bottom: 1px solid red;
+    color: red;
+ }

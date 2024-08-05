@@ -1,15 +1,16 @@
 import { Component, ElementRef, ViewChild, Renderer2, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { ShopDataService } from '../shop-data.service';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, CommonModule, FormsModule],
+  imports: [RouterLink, CommonModule, FormsModule,NgClass],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'] // Cần đảm bảo styleUrls đúng
 })
@@ -105,14 +106,14 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
     this.priceSum();
   }
 
-
+  // xoa san pham khoi shop
   removeItem(index: number): void {
     this.receivedDataArray.splice(index, 1);
     this.shopDataService.setDataArray(this.receivedDataArray);
     
     this.priceSum();
   }
-
+  // cap naht lai so luong san pham trong shop
   updateQuantity(index: number): void {
     this.shopDataService.setDataArray(this.receivedDataArray);
     this.priceSum();
@@ -144,6 +145,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
         this.changeStyleShop2();
       }
     });
+    this.changemenu();
   }
 
   
@@ -155,9 +157,17 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
   
   search:string='';
   searchXuLy(item: string){
-  
-   
     this.router.navigate(['/product'], { queryParams: { search: item.search} });
-    
   }
+
+  currenMenuMain: string ='/Admim/Home';
+  changemenu(): void {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.currenMenuMain = event.urlAfterRedirects; 
+      }
+    });
+    this.currenMenuMain = this.router.url;
+  };
+
 }

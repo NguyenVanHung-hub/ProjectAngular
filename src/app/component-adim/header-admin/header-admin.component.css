@@ -8,7 +8,7 @@
     background-color: black;
     position: fixed;
     top: 0;
-    z-index: 999999;
+    z-index: 999;
 }
 .header-admin div a{
     text-decoration: none;
@@ -26,7 +26,85 @@
     border: none;
     border-radius: 20px;
 }
+.header-admin-right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .header-admin div i{
     color: white;
     font-size: 22px;
+}
+.header-admin div i:nth-child(2){
+    
+    margin-left: 50px;
+    display: none;
+}
+
+.menu-admin-mobile{
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 40%;
+    background-color: #edfde7;
+    z-index: 99999;
+}
+
+.menu-admin-mobile{
+    padding: 10px;
+}
+.menu-admin-mobile .menu-ad-icon i{
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+.menu-ad-main ul a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+.menu-ad-main ul a li{
+    list-style: none;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    border-bottom: 1px solid black;
+}
+.logout{
+    margin-left: 25px;
+    margin-top: 80%;
+    border-top: 1px solid black;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+}
+.logout i{
+    font-size: 26px; 
+}
+.logout button{
+    border: none;
+    font-size: 24px;
+    margin-left: 10px;
+    background-color: #edfde7;
+    text-transform: uppercase;
+}
+
+/* Responsive */
+@media only screen and (max-width: 991px) {
+    .header-admin{
+        padding: 20px 50px;
+    }
+    .input{
+        display: none;
+    }
+    .header-admin div i:nth-child(2){
+        display: block;
+    }
+    
+}
+
+@media only screen and (max-width: 677px) {
+    .header-admin{
+        padding: 20px 10px;
+    }
 }

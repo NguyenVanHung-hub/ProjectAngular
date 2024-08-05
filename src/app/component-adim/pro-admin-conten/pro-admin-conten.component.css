@@ -74,3 +74,23 @@
 .list-pro-table tbody tr:nth-child(even){
     background-color: rgb(0, 0, 0, 0.1);
 }
+.pagination-container{
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+/* Responsive */
+@media only screen and (max-width: 991px) {
+    
+}
+
+@media only screen and (max-width: 677px) {
+    .main-conten{
+        padding: 30px 10px;
+    }
+}

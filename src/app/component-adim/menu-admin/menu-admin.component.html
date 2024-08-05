@@ -1,23 +1,23 @@
 <div class="menu-admin">
     <ul>
-        <a href="/Admim/Home">
+        <a [ngClass]="{'active': currenMenu === '/Admim/Home' }"  routerLink="/Admim/Home">
             <i class="fa-solid fa-house-chimney"></i>
             <li>Tong Quan</li></a>
-        <a href="/Admim/Product">
+        <a [ngClass]="{'active': currenMenu === '/Admim/Product' }"  routerLink="/Admim/Product">
             <i class="fa-brands fa-product-hunt"></i>
             <li>San Pham Cua Toi</li></a>
-        <a href="/Admim/File">
+        <a [ngClass]="{'active': currenMenu === '/Admim/File' }"  routerLink="/Admim/File">
             <i class="fa-solid fa-user"></i>
             <li>Ho So</li></a>
-        <a href="/Admim/Setting">
+        <a [ngClass]="{'active': currenMenu === '/Admim/Setting' }"  routerLink="/Admim/Setting">
             <i class="fa-solid fa-gear"></i>
             <li>Cai Dat</li></a>
-        <a href="/Admim/Hepl">
+        <a [ngClass]="{'active': currenMenu === '/Admim/Hepl' }"  routerLink="/Admim/Hepl">
             <i class="fa-solid fa-circle-question"></i>
-            <li>Trung Tam Tro Giup</li></a>
+            <li >Ho Tro</li></a>
     </ul>
     <div class="logout">
         <i class="fa-solid fa-right-from-bracket"></i>
-        <button (click)="logout()">Thoat</button>
+        <button  (click)="logout()">Thoat</button>
     </div>
 </div>

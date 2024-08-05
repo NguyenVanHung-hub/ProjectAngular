@@ -1,1 +1,42 @@
-<p>setting-conten works!</p>
+<div class="setting">
+  <h2>cai dat</h2>
+  <div class="setting-conten">
+    <div class="menu-setting">
+      <ul>
+        <li class="li-one" [ngClass]="{'active': currentForm === 'profile'}" (click)="showProfile()">ho so</li>
+        <li class="li-one" [ngClass]="{'active': currentForm === 'password'}" (click)="showPassword()">mat khau</li>
+        <li class="li-one">thong bao</li>
+      </ul>
+    </div>
+    <div class="setting-form">
+      <div class="form-profile" *ngIf="currentForm === 'profile' ">
+        <h3>ho so nguoi dung</h3>
+      <form action="">
+        <div class="input-tex">
+          <input type="text" placeholder="tem nguoi dung" />
+          <input type="email" placeholder="email@gmail.com" />
+          <input type="file" class="input-file">
+        </div>
+        <div class="input-buttom">
+          <button class="button-one">Cai Lai</button>
+          <button class="button-two">cap Nhat</button>
+        </div>
+      </form>
+      </div>
+      <div class="form-passwaord" *ngIf="currentForm === 'password' ">
+        <h3>mat khau</h3>
+      <form action="">
+        <div class="input-tex">
+          <input type="password" placeholder="Nhap Mat Khau Cu" />
+          <input type="password" placeholder="Nhap Mat Khau Moi" />
+          <input type="password" class="input-file" placeholder="Nhpa Lai Mat Khau">
+        </div>
+        <div class="input-buttom">
+          <button class="button-one">Cai Lai</button>
+          <button class="button-two">cap Nhat</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>

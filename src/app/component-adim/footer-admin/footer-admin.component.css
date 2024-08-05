@@ -21,3 +21,19 @@
     padding-right: 15px;
     margin-right: 15px;
 }
+
+
+
+/* Responsive */
+@media only screen and (max-width: 991px) {
+    .footer-admin{
+        padding: 30px 50px;
+    }
+}
+
+
+@media only screen and (max-width: 677px) {
+    .footer-admin{
+        padding: 30px 10px;
+    }
+}

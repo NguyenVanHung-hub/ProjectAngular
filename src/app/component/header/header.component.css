@@ -244,11 +244,17 @@
     margin: 0;
  }
  .menu-main ul a{
+    
      color: white;
      text-decoration: none;
      list-style: none;
+     opacity: 0.6;
  }
-
+ .menu-main ul .active{
+   /* color: red;  */
+   opacity: 1;
+   border-bottom: 1px solid white;
+ }
 
 
 
