@@ -8,11 +8,12 @@ import { ShopDataService } from '../shop-data.service';
 import { Observable, Subscription } from 'rxjs';
 import { User } from '../../type/user.type';
 import { HttpClient } from '@angular/common/http';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-product-hot',
   standalone: true,
-  imports: [CommonModule,RouterModule,RouterLink],
+  imports: [CommonModule,RouterModule,RouterLink,NgbCarouselModule],
   templateUrl: './product-hot.component.html',
   styleUrl: './product-hot.component.css'
 })
