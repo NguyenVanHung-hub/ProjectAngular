@@ -167,6 +167,9 @@
     padding-right: 15px;
     margin-right: 10px
 }
+.singIn a{
+    color: white;
+}
 .shop{
     position: relative;
     cursor: pointer;
@@ -256,7 +259,9 @@
    border-bottom: 1px solid white;
  }
 
-
+.SingeIn-Out-mobile a{
+    color: black;
+}
 
  /* Reponsive */
  @media only screen and (max-width: 991px)  {

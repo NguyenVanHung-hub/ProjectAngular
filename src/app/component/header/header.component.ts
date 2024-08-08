@@ -6,11 +6,13 @@ import { Subscription } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { NgClass } from '@angular/common';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, CommonModule, FormsModule,NgClass],
+  imports: [RouterLink, CommonModule, FormsModule,NgClass,NzIconModule,NzInputModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'] // Cần đảm bảo styleUrls đúng
 })
@@ -21,7 +23,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('clickUser') clickUser!: ElementRef;
   receivedDataArray: any[] = [];
   Sum: number = 0;
-  
+  suffixIconButton: string ='';
 
   private dataSubscription: Subscription = new Subscription();
   private cssChangeSubscription: Subscription = new Subscription();

@@ -9,11 +9,13 @@ import { Observable, Subscription } from 'rxjs';
 import { User } from '../../type/user.type';
 import { HttpClient } from '@angular/common/http';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { OwlOptions } from 'ngx-owl-carousel-o';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-product-hot',
   standalone: true,
-  imports: [CommonModule,RouterModule,RouterLink,NgbCarouselModule],
+  imports: [CommonModule,RouterModule,RouterLink,NgbCarouselModule,CarouselModule],
   templateUrl: './product-hot.component.html',
   styleUrl: './product-hot.component.css'
 })
@@ -76,5 +78,34 @@ export class ProductHotComponent implements OnInit, OnDestroy{
 
 sendData() {
   this.shopDataService.setDataArray(this.cartItemsHot);
+}
+
+
+// slider
+customOptions: OwlOptions = {
+  loop: true,
+  nav: true,
+  autoplay: true,
+  margin:20,
+  autoplayTimeout: 3000, 
+  autoplayHoverPause: true, 
+  mouseDrag: false,
+  touchDrag: false,
+  pullDrag: false,
+  dots: false,
+  navSpeed: 700,
+  navText: ['<i class="fa-solid fa-angle-left"></i>', '<i class="fa-solid fa-angle-right"></i>'],
+  responsive: {
+    0:{
+      items:1
+    },
+    676:{
+      items:2
+    },
+    991:{
+      items:4
+    },
+    
+  }
 }
 }

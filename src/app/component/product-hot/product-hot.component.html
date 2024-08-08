@@ -1,12 +1,12 @@
 <div class="product-hot">
   <h2>San Pham ban chay</h2>
   <div class="product-hot-item container">
-    <div  class="row">
-      <div
+    <owl-carousel-o [options]="customOptions"  class="row">
+      <ng-container 
         class="col-md-3 col-sm-6 col-12 p-2"
         *ngFor="let item of hotProducts; let i = index"
       >
-        <div class="col-item">
+        <ng-template carouselSlide class="col-item">
           <div
             class="product-img"
             (mouseenter)="setHoverState(i, true)"
@@ -27,8 +27,8 @@
           <div class="buy">
             <button class="button-hover" (click)="onBuyClick(item)">Mua</button>
           </div>
-        </div>
-      </div>
-    </div>
+        </ng-template>
+      </ng-container >
+    </owl-carousel-o>
   </div>
 </div>
