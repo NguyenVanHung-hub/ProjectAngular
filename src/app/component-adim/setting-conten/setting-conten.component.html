@@ -1,39 +1,39 @@
 <div class="setting">
-  <h2>cai dat</h2>
+  <h2>Cài Đặt</h2>
   <div class="setting-conten">
     <div class="menu-setting">
       <ul>
-        <li class="li-one" [ngClass]="{'active': currentForm === 'profile'}" (click)="showProfile()">ho so</li>
-        <li class="li-one" [ngClass]="{'active': currentForm === 'password'}" (click)="showPassword()">mat khau</li>
-        <li class="li-one">thong bao</li>
+        <li class="li-one" [ngClass]="{'active': currentForm === 'profile'}" (click)="showProfile()">Hồ sơ</li>
+        <li class="li-one" [ngClass]="{'active': currentForm === 'password'}" (click)="showPassword()">Mật Khẩu</li>
+        <li class="li-one">Thông báo</li>
       </ul>
     </div>
     <div class="setting-form">
       <div class="form-profile" *ngIf="currentForm === 'profile' ">
-        <h3>ho so nguoi dung</h3>
+        <h3>Hồ Sơ Người Dùng</h3>
       <form action="">
         <div class="input-tex">
-          <input type="text" placeholder="tem nguoi dung" />
+          <input type="text" placeholder="tên người dùng" />
           <input type="email" placeholder="email@gmail.com" />
           <input type="file" class="input-file">
         </div>
         <div class="input-buttom">
-          <button class="button-one">Cai Lai</button>
-          <button class="button-two">cap Nhat</button>
+          <button class="button-one">cài Lại</button>
+          <button class="button-two">Cập nhật</button>
         </div>
       </form>
       </div>
       <div class="form-passwaord" *ngIf="currentForm === 'password' ">
-        <h3>mat khau</h3>
+        <h3>mật khẩu</h3>
       <form action="">
         <div class="input-tex">
-          <input type="password" placeholder="Nhap Mat Khau Cu" />
-          <input type="password" placeholder="Nhap Mat Khau Moi" />
-          <input type="password" class="input-file" placeholder="Nhpa Lai Mat Khau">
+          <input type="password" placeholder="Nhập Mật Khẩu Cũ" />
+          <input type="password" placeholder="Nhập Mật Khẩu Mới" />
+          <input type="password" class="input-file" placeholder="Nhập Lại Mật Khảu">
         </div>
         <div class="input-buttom">
-          <button class="button-one">Cai Lai</button>
-          <button class="button-two">cap Nhat</button>
+          <button class="button-one">Cài Lại</button>
+          <button class="button-two">cập Nhật</button>
         </div>
       </form>
       </div>

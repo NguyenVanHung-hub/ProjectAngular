@@ -38,7 +38,7 @@
     </div>
     <div class="header-top">
         <div class="logo">
-            <a href="#"><img src="" alt="anhlogo"></a>
+            <a href="/"><img src="/assets/img/logo.png" alt="anhlogo"></a>
         </div>
        <div class="search">
             <form #searchForm="ngForm" (ngSubmit)="searchXuLy(searchForm.value)">
@@ -51,7 +51,7 @@
         <div class="SingeIn-Out">
             
             <div class="singIn" *ngIf="!isUserAuthenticated">
-                <a href="/SingeIn"><button class="SingeIn">Dang Nhap</button></a>
+                <a href="/SingeIn"><button class="SingeIn">Đăng Nhập</button></a>
             </div>
             <div class="user" *ngIf="isUserAuthenticated">
                 <i class="fa-duotone fa-solid fa-user" (click)=" onClickuser()"></i>
@@ -95,15 +95,15 @@
                     <div class="menu-moblie-header">
                         <i class="fa-solid fa-xmark"  (click) = "changeStyle2()"></i>
                         <div class="SingeIn-Out-mobile">
-                            <a routerLink="/SingeIn"><button>Dang Nhap</button></a>
+                            <a routerLink="/SingeIn"><button>Đăng Nhập</button></a>
                         </div>
                     </div>
                     <div class="menu-mo">
                         <ul>
-                            <a routerLink="/"><li>Trang Chu</li></a>
-                            <a href="#"><li>Gioi Thieu</li></a>
-                            <a routerLink="/product"><li>San Pham</li></a>
-                            <a href="#"><li>Lien He</li></a>
+                            <a routerLink="/"><li>Trang Chủ</li></a>
+                            <a href="#"><li>Giới Thiệu</li></a>
+                            <a routerLink="/product"><li>Sản Phẩm</li></a>
+                            <a href="#"><li>Liên Hệ</li></a>
                         </ul>
                     </div>
                 
@@ -117,10 +117,10 @@
     </div>
     <div class="menu-main">
         <ul>
-            <a [ngClass]="{'active': currenMenuMain === '/' }" routerLink="/"><li>Trang Chu</li></a>
-            <a [ngClass]="{'active': currenMenuMain === '/introduce' }" routerLink="/introduce"><li>Gioi Thieu</li></a>
-            <a [ngClass]="{'active': currenMenuMain === '/product' }" routerLink="/product"><li>San Pham</li></a>
-            <a [ngClass]="{'active': currenMenuMain === '/contact' }" routerLink="/contact"><li>Lien He</li></a>
+            <a [ngClass]="{'active': currenMenuMain === '/' }" routerLink="/"><li>Trang Chủ</li></a>
+            <a [ngClass]="{'active': currenMenuMain === '/introduce' }" routerLink="/introduce"><li>Giới Thiệu</li></a>
+            <a [ngClass]="{'active': currenMenuMain === '/product' }" routerLink="/product"><li>Sản Phẩm</li></a>
+            <a [ngClass]="{'active': currenMenuMain === '/contact' }" routerLink="/contact"><li>Liên Hệ</li></a>
         </ul>
     </div>
 </header>

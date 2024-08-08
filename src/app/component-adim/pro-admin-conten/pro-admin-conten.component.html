@@ -1,18 +1,18 @@
 
         <div class="main-conten">
-          <h2>Danh Sach San Pham</h2>
+          <h2>Danh Sách Sản Phẩm</h2>
           <div class="list-pro-admin">
-            <a href="/Admim/Update"><button class="add">Them San Pham</button></a>
+            <a href="/Admim/Update"><button class="add">Thêm Sản Phẩm</button></a>
             <table class="list-pro-table">
                 <thead>
                     <tr>
                         <th class="th-thead" scope="col">Id</th>
-                        <th class="th-thead" scope="col">Ten</th>
-                        <th class="th-thead" scope="col">Gia</th>
-                        <th class="th-thead" scope="col">Loai San Pham</th>
+                        <th class="th-thead" scope="col">Tên</th>
+                        <th class="th-thead" scope="col">Giá</th>
+                        <th class="th-thead" scope="col">Loại Sản Phẩm</th>
                         
-                        <th class="th-thead"  scope="col">Sua</th>
-                        <th class="th-thead" scope="col">Xoa</th>
+                        <th class="th-thead"  scope="col">Sửa</th>
+                        <th class="th-thead" scope="col">Xóa</th>
                     </tr>
                 </thead>
                 <tbody *ngIf="users.length">
@@ -22,8 +22,8 @@
                         <td scope="row">{{item.price}}</td>
                         <td scope="row">{{item.catelogy}}</td>
                         
-                        <td scope="row"><button class="update" (click)="edit(item.id)">Sua San Pham</button></td>
-                        <td scope="row"><button class="delete" (click)="delete(item.id)">Xoa</button></td>
+                        <td scope="row"><button class="update" (click)="edit(item.id)">Sửa Sản Phẩm</button></td>
+                        <td scope="row"><button class="delete" (click)="delete(item.id)">Xóa</button></td>
                     </tr>
                 </tbody>
             </table>
