@@ -35,15 +35,25 @@
     align-items: center;
     font-size: 16px;
 }
-.singeIn-Form form div:nth-child(1){
+/* .singeIn-Form form div:nth-child(1){
     margin-bottom: 20px;
-}
+} */
 .singeIn-Form form div p{
     margin-bottom: 10px; 
 }
 .singeIn-Form form div .input {
     width: 500px;
     padding: 5px;
+    margin-bottom: 20px;
+}
+.div-validators{
+    display: flex;
+   
+}
+.div-validators div div{
+    color: red;
+    font-size: 14px;
+    margin-left: 10px;
 }
 .checkbox{
     width: 500px;

@@ -35,15 +35,36 @@
     align-items: center;
     font-size: 16px;
 }
-.singeIn-Form form div:nth-child(1){
+/* .singeIn-Form form div:nth-child(1){
     margin-bottom: 20px;
-}
+} */
 .singeIn-Form form div p{
     /* margin-bottom: 10px;  */
 }
 .singeIn-Form form div .input{
     width: 300px;
     padding: 5px;
+}
+.form-email{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.form-password{
+    display: flex;
+    flex-direction: column;
+    
+}
+.form-validation{
+    display: flex;
+   
+
+}
+.form-validation div div {
+    height: 100%;
+    margin-left: 10px;
+    color: red;
+    font-size: 14px;
 }
 .checkbox{
     width: 300px;

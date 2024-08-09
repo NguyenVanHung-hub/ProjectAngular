@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, NgForm } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, NgForm, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../auth.service';
@@ -19,11 +19,11 @@ export class ResgiterComponent implements OnInit{
   resgiterForm! : FormGroup;
   ngOnInit(): void {
       this.resgiterForm = new FormGroup({
-        name: new FormControl(''),
-        tel: new FormControl(''),
-        gmail: new FormControl(''),
-        password: new FormControl(''),
-        confirmPassword: new FormControl(''),
+        name: new FormControl('',[Validators.required, Validators.minLength(5)]),
+        tel: new FormControl('',[Validators.required, Validators.minLength(10)]),
+        gmail: new FormControl('',[Validators.required, Validators.email]),
+        password: new FormControl('', [Validators.required, Validators.minLength(8)]),
+        confirmPassword: new FormControl('',[Validators.required, Validators.minLength(8)]),
       })
   };
 

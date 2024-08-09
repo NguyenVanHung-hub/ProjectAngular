@@ -1,54 +1,96 @@
 <div class="singeIn-wrapper">
-    <div class="singeIn-title">
-        <div class="singeIn">
-            <a href="/SingeIn">
-                <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
-                <p>Đăng Nhập</p>
-            </a>
-        </div>
-        <div class="resgiter">
-            <a href="/Resgiter">
-                <i class="fa-duotone fa-solid fa-user"></i>
-            <p>Đăng Ký</p>
-            </a>
-        </div>
+  <div class="singeIn-title">
+    <div class="singeIn">
+      <a href="/SingeIn">
+        <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+        <p>Đăng Nhập</p>
+      </a>
     </div>
-    <div class="singeIn-Form">
-        <form [formGroup]="logInForm"
-              (submit)="submitLogInForm(logInForm.value)"        
-        >
-            <div class="form-email">
-                <p>Email</p>
-                <input formControlName="gmail"  name="gmail"  class="input" type="email">
-            </div>
-            <div class="form-password">
-                <p>Mât Khẩu</p>
-                <input formControlName="password"  class="input" name="password" type="password">
-            </div>
-            <div class="checkbox">
-                <label for="ch_remember">
-                    <input type="checkbox">
-                    Ghi nhớ đăng nhập
-                </label>
-                <p>|</p>
-                <a href="#">Quên mật khẩu</a>
-            </div>
-            <div class="submit">
-                <button type="submit">Đăng Nhập</button>
-            </div>
-        </form>
-        
-        <div class="another-login">
-            <p>Hoặc đăng nhập bằng</p>
-            <div class="login-face-goole">
-                <a href="#">
-                <img src="https://oldsailor.com.vn/modules/member/images/i-face.jpg" alt="anh Facebook">
-                </a>
-                <a href="#">
-                <img src="https://oldsailor.com.vn/modules/member/images/i-gmail.jpg" alt="anh Google">
-                </a>
-            </div>
-        </div>
+    <div class="resgiter">
+      <a href="/Resgiter">
+        <i class="fa-duotone fa-solid fa-user"></i>
+        <p>Đăng Ký</p>
+      </a>
     </div>
-    
+  </div>
+  <div class="singeIn-Form">
+    <form [formGroup]="logInForm" (submit)="submitLogInForm(logInForm.value)">
+      <div class="form-email">
+        <div class="form-validation">
+          <label for="">
+            <p>Email:</p>
+          </label>
+          <div
+            *ngIf="
+              logInForm.get('gmail')?.invalid &&
+              (logInForm.get('gmail')?.dirty || logInForm.get('gmail')?.touched)
+            "
+          >
+            <div *ngIf="logInForm.get('gmail')?.errors?.['required']">
+              *Không Đươc Bỏ Trống.
+            </div>
+          </div>
+        </div>
+        <input
+          formControlName="gmail"
+          name="gmail"
+          class="input"
+          type="email"
+        />
+      </div>
+      <div class="form-password">
+        <div class="form-validation">
+          <label for="">
+            <p>Mật Khẩu:</p>
+          </label>
+          <div
+            *ngIf="
+              logInForm.get('password')?.invalid &&
+              (logInForm.get('password')?.dirty ||
+                logInForm.get('password')?.touched)
+            "
+          >
+            <div *ngIf="logInForm.get('password')?.errors?.['required']">
+              *Không Đươc Bỏ Trống.
+            </div>
+          </div>
+        </div>
+        <input
+          formControlName="password"
+          class="input"
+          name="password"
+          type="password"
+        />
+      </div>
+      <div class="checkbox">
+        <label for="ch_remember">
+          <input type="checkbox" />
+          Ghi nhớ đăng nhập
+        </label>
+        <p>|</p>
+        <a href="#">Quên mật khẩu</a>
+      </div>
+      <div class="submit">
+        <button type="submit">Đăng Nhập</button>
+      </div>
+    </form>
+
+    <div class="another-login">
+      <p>Hoặc đăng nhập bằng</p>
+      <div class="login-face-goole">
+        <a href="#">
+          <img
+            src="https://oldsailor.com.vn/modules/member/images/i-face.jpg"
+            alt="anh Facebook"
+          />
+        </a>
+        <a href="#">
+          <img
+            src="https://oldsailor.com.vn/modules/member/images/i-gmail.jpg"
+            alt="anh Google"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
 </div>

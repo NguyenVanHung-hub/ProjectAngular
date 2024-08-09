@@ -1,39 +1,127 @@
 <div class="update-admin-wrapper">
-    
-    <div class="update-conten-wrapper">
-        <div class="form">
-            <h2>{{ isEdit ? 'Sửa Sản Phẩm' : 'Thêm Sản Phẩm' }}</h2>
-            <form [formGroup]="formProduct"
-                  (submit)="submitFormProduct(formProduct.value)"
+  <div class="update-conten-wrapper">
+    <div class="form">
+      <h2>{{ isEdit ? "Sửa Sản Phẩm" : "Thêm Sản Phẩm" }}</h2>
+      <form
+        [formGroup]="formProduct"
+        (submit)="submitFormProduct(formProduct.value)"
+      >
+        <div class="name">
+          <div class="div-validators">
+            <p>Tên Sản Phẩm:</p>
+            <div
+              *ngIf="
+                formProduct.get('title')?.invalid &&
+                (formProduct.get('title')?.dirty ||
+                  formProduct.get('title')?.touched)
+              "
             >
-                <div class="name">
-                    <p>Tên:</p>
-                    <input formControlName="title" type="text" name="title" placeholder="Nhập tên sản phẩm">
-                </div>
-                <div class="img">
-                    <p>Ảnh:</p>
-                    <input formControlName="image"  type="text" name="image"  placeholder="Nhap link hình ảnh">
-                </div>
-                <div class="price">
-                    <p>Giá:</p>
-                    <input formControlName="price"  type="number" name="price" placeholder="Nhập giá sản phẩm">
-                </div>
-                <div class="catelogy">
-                    <p>Loai:</p>
-                    <input formControlName="catelogy"  type="text" name="catelogy" placeholder="Nhap loại sản phẩm">
-                </div>
-                <div class="conten">
-                    <p>Mô Tả:</p>
-                    <input formControlName="conten"  type="text" name="conten" placeholder="Nhập mô tả sản phẩm">
-                </div>
-                <div class="buttom">
-                    <button type="submit" >{{ isEdit ? 'Cập Nhật' : 'Thêm' }}</button>
-                    
-                </div>
-            </form>
+              <div *ngIf="formProduct.get('title')?.errors?.['required']">
+                *Không được bỏ trống.
+              </div>
+            </div>
+          </div>
+          <input
+            formControlName="title"
+            type="text"
+            name="title"
+            placeholder="Nhập tên sản phẩm"
+          />
         </div>
-        
+        <div class="img">
+          <div class="div-validators">
+            <p>Ảnh:</p>
+            <div
+              *ngIf="
+                formProduct.get('image')?.invalid &&
+                (formProduct.get('image')?.dirty ||
+                  formProduct.get('image')?.touched)
+              "
+            >
+              <div *ngIf="formProduct.get('image')?.errors?.['required']">
+                *Không được bỏ trống.
+              </div>
+            </div>
+          </div>
+
+          <input
+            formControlName="image"
+            type="text"
+            name="image"
+            placeholder="Nhap link hình ảnh"
+          />
+        </div>
+        <div class="price">
+          <div class="div-validators">
+            <p>Giá:</p>
+            <div
+              *ngIf="
+                formProduct.get('price')?.invalid &&
+                (formProduct.get('price')?.dirty ||
+                  formProduct.get('price')?.touched)
+              "
+            >
+              <div *ngIf="formProduct.get('price')?.errors?.['required']">
+                *Không được bỏ trống.
+              </div>
+            </div>
+          </div>
+
+          <input
+            formControlName="price"
+            type="number"
+            name="price"
+            placeholder="Nhập giá sản phẩm"
+          />
+        </div>
+        <div class="catelogy">
+          <div class="div-validators">
+            <p>Loai:</p>
+            <div
+              *ngIf="
+                formProduct.get('catelogy')?.invalid &&
+                (formProduct.get('catelogy')?.dirty ||
+                  formProduct.get('catelogy')?.touched)
+              "
+            >
+              <div *ngIf="formProduct.get('catelogy')?.errors?.['required']">
+                *Không được bỏ trống.
+              </div>
+            </div>
+          </div>
+          <input
+            formControlName="catelogy"
+            type="text"
+            name="catelogy"
+            placeholder="Nhap loại sản phẩm"
+          />
+        </div>
+        <div class="conten">
+          <div class="div-validators">
+            <p>Mô Tả:</p>
+            <div
+              *ngIf="
+                formProduct.get('catelogy')?.invalid &&
+                (formProduct.get('catelogy')?.dirty ||
+                  formProduct.get('catelogy')?.touched)
+              "
+            >
+              <div *ngIf="formProduct.get('catelogy')?.errors?.['required']">
+                *Không được bỏ trống.
+              </div>
+            </div>
+          </div>
+          <input
+            formControlName="conten"
+            type="text"
+            name="conten"
+            placeholder="Nhập mô tả sản phẩm"
+          />
+        </div>
+        <div class="buttom">
+          <button type="submit">{{ isEdit ? "Cập Nhật" : "Thêm" }}</button>
+        </div>
+      </form>
     </div>
-
+  </div>
 </div>
-

@@ -14,28 +14,128 @@
     </div>
   </div>
   <div class="singeIn-Form">
-    <form [formGroup]="resgiterForm"
-          (submit)="submitResgiterForm(resgiterForm.value)"
+    <form
+      [formGroup]="resgiterForm"
+      (submit)="submitResgiterForm(resgiterForm.value)"
     >
       <div class="form-name">
-        <p>Họ và Tên</p>
-        <input formControlName="name" class="input" name="username" type="text" />
+        <div class="div-validators">
+          <p>Họ và Tên:</p>
+          <div
+            *ngIf="
+              resgiterForm.get('name')?.invalid &&
+              (resgiterForm.get('name')?.dirty ||
+                resgiterForm.get('name')?.touched)
+            "
+          >
+            <div *ngIf="resgiterForm.get('name')?.errors?.['required']">
+              *Không được bỏ trống.
+            </div>
+            <div *ngIf="resgiterForm.get('name')?.errors?.['minlength']">
+              *Phải co ít nhât 5 ký tự
+            </div>
+          </div>
+        </div>
+        <input
+          formControlName="name"
+          class="input"
+          name="username"
+          type="text"
+        />
       </div>
       <div class="form-phone">
-        <p>Số điên thoại</p>
+        <div class="div-validators">
+          <p>Số điên thoại:</p>
+          <div
+            *ngIf="
+              resgiterForm.get('tel')?.invalid &&
+              (resgiterForm.get('tel')?.dirty ||
+                resgiterForm.get('tel')?.touched)
+            "
+          >
+            <div *ngIf="resgiterForm.get('tel')?.errors?.['required']">
+              *Không được bỏ trống.
+            </div>
+            <div *ngIf="resgiterForm.get('tel')?.errors?.['minlength']">
+              *Phải co ít nhât 10 ký tự
+            </div>
+          </div>
+        </div>
+
         <input formControlName="tel" class="input" name="phone" type="tel" />
       </div>
       <div class="form-email">
-        <p>Email</p>
+        <div class="div-validators">
+          <p>Email:</p>
+          <div
+            *ngIf="
+              resgiterForm.get('gmail')?.invalid &&
+              (resgiterForm.get('gmail')?.dirty ||
+                resgiterForm.get('gmail')?.touched)
+            "
+          >
+            <div *ngIf="resgiterForm.get('gmail')?.errors?.['required']">
+              *Không được bỏ trống.
+            </div>
+            <div *ngIf="resgiterForm.get('gmail')?.errors?.['email']">
+              *Không phải kiểu gamil
+            </div>
+          </div>
+        </div>
+
         <input formControlName="gmail" class="input" name="gmail" />
       </div>
       <div class="form-password">
-        <p>Mật Khẩu</p>
-        <input formControlName="password" class="input" name="password" type="password" />
+        <div class="div-validators">
+          <p>Mật Khẩu:</p>
+          <div
+            *ngIf="
+              resgiterForm.get('password')?.invalid &&
+              (resgiterForm.get('password')?.dirty ||
+                resgiterForm.get('password')?.touched)
+            "
+          >
+            <div *ngIf="resgiterForm.get('password')?.errors?.['required']">
+              *Không được bỏ trống.
+            </div>
+            <div *ngIf="resgiterForm.get('password')?.errors?.['minlength']">
+              *Phải co ít nhât 8 ký tự
+            </div>
+          </div>
+        </div>
+
+        <input
+          formControlName="password"
+          class="input"
+          name="password"
+          type="password"
+        />
       </div>
       <div class="form-password">
-        <p>Nhập lại mật khẩu</p>
-        <input formControlName="confirmPassword" class="input" name="confirmPassword" type="password" />
+        <div class="div-validators">
+          <p>Nhập lại mật khẩu:</p>
+          <div
+            *ngIf="
+              resgiterForm.get('confirmPassword')?.invalid &&
+              (resgiterForm.get('confirmPassword')?.dirty ||
+                resgiterForm.get('confirmPassword')?.touched)
+            "
+          >
+            <div *ngIf="resgiterForm.get('confirmPassword')?.errors?.['required']">
+              *Không được bỏ trống.
+            </div>
+            <div *ngIf="resgiterForm.get('confirmPassword')?.errors?.['minlength']">
+              *Phải co ít nhât 8 ký tự
+            </div>
+          </div>
+        </div>
+
+        <input
+          formControlName="confirmPassword"
+          class="input"
+          name="confirmPassword"
+          type="password"
+        />
       </div>
       <div class="checkbox">
         <label for="ch_remember">
@@ -44,9 +144,7 @@
         </label>
       </div>
       <div class="submit">
-        <button type="submit">
-          Đăng Ký
-        </button>
+        <button type="submit">Đăng Ký</button>
       </div>
     </form>
     <div class="another-login">

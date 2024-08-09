@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, NgForm } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, NgForm, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../auth.service';
@@ -20,8 +20,8 @@ export class SingeInComponent implements OnInit{
   logInForm! : FormGroup;
   ngOnInit(): void{
     this.logInForm = new FormGroup({
-      gmail: new FormControl(''),
-      password: new FormControl('')
+      gmail: new FormControl('',[Validators.required]),
+      password: new FormControl('',[Validators.required])
     })
   };
 

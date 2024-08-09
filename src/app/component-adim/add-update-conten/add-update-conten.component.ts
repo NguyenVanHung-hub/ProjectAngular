@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuAdminComponent } from "../menu-admin/menu-admin.component";
 import { FooterAdminComponent } from "../footer-admin/footer-admin.component";
-import { FormControl, FormGroup, FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../../component/product.service';
@@ -23,11 +23,11 @@ export class AddUpdateContenComponent implements OnInit{
 
     ngOnInit(): void {
         this.formProduct = new FormGroup({
-         title: new FormControl(''),
-          image: new FormControl(''),
-          price: new FormControl(0),
-          catelogy: new FormControl(''),
-          conten: new FormControl(''),
+         title: new FormControl('',[Validators.required]),
+          image: new FormControl('',[Validators.required]),
+          price: new FormControl(0,[Validators.required]),
+          catelogy: new FormControl('',[Validators.required]),
+          conten: new FormControl('',[Validators.required]),
         });
 
         this.route.queryParams.subscribe(params => {
