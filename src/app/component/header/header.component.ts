@@ -14,7 +14,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
   standalone: true,
   imports: [RouterLink, CommonModule, FormsModule,NgClass,NzIconModule,NzInputModule],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'] // Cần đảm bảo styleUrls đúng
+  styleUrls: ['./header.component.css'] 
 })
 export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
 
