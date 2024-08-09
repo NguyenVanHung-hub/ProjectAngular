@@ -1,45 +1,43 @@
-import { Component } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { Component,OnInit } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, NgForm } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { logInForm } from '../../type/user.type';
+import { response } from 'express';
+import { error, log } from 'console';
 @Component({
   selector: 'app-singe-in',
   standalone: true,
-  imports: [FormsModule, CommonModule,],
+  imports: [FormsModule, CommonModule,ReactiveFormsModule],
   templateUrl: './singe-in.component.html',
   styleUrls: ['./singe-in.component.css'],
   
 })
-export class SingeInComponent {
-  email: string = "";
-  password: string = "";
-
+export class SingeInComponent implements OnInit{
   constructor(private authService: AuthService, private router: Router) {}
+  logInForm! : FormGroup;
+  ngOnInit(): void{
+    this.logInForm = new FormGroup({
+      gmail: new FormControl(''),
+      password: new FormControl('')
+    })
+  };
 
-  formLogIn(loginForm: NgForm) {
-    if (loginForm.valid) {
-      this.authService.login(this.email, this.password).subscribe(
-        response => {
-          console.log('Dang Nhap Thanh Cong', response);
-          if (response && response.user) {
-            // localStorage.setItem('token', response.user.token);
-            console.log(this.email,this.password);
-            if( this.email === 'admin@admin.com' && this.password === 'admin'){
-              this.router.navigate(['/Admim/Home']);
-            }else{
-              this.router.navigate(['/']);
-            }
-            
-            
-          }
-        },
-        error => {
-          console.error('Dang Nhap That Bai', error);
-          alert('Tai Khoan Hoac Mat Khau Sai')
+  submitLogInForm(formVlaue: logInForm): void{
+   const {gmail, password} = formVlaue;
+    this.authService.login(gmail, password).subscribe({
+      next:(response) =>{
+        if(response && response.user.name ==='Admin' && response.user.email==='admin@admin.com'){
+          this.router.navigate(['/Admim/Home'])
+        } else{
+          this.router.navigate(['/']) 
         }
-      );
-    }
-   
+      },
+      error:(err) =>{
+        alert('Sai Tên Gamil Hoặc Mật Khẩu')
+      }
+    })
   }
 } 

@@ -14,14 +14,16 @@
         </div>
     </div>
     <div class="singeIn-Form">
-        <form #loginForm="ngForm" (ngSubmit)="formLogIn(loginForm)">
+        <form [formGroup]="logInForm"
+              (submit)="submitLogInForm(logInForm.value)"        
+        >
             <div class="form-email">
                 <p>Email</p>
-                <input  name="gmail" [(ngModel)]="email" class="input" type="email">
+                <input formControlName="gmail"  name="gmail"  class="input" type="email">
             </div>
             <div class="form-password">
                 <p>Mât Khẩu</p>
-                <input class="input" name="password" [(ngModel)]="password" type="password">
+                <input formControlName="password"  class="input" name="password" type="password">
             </div>
             <div class="checkbox">
                 <label for="ch_remember">

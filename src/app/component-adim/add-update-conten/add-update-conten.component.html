@@ -3,29 +3,32 @@
     <div class="update-conten-wrapper">
         <div class="form">
             <h2>{{ isEdit ? 'Sửa Sản Phẩm' : 'Thêm Sản Phẩm' }}</h2>
-            <form #updateForm="ngForm" (ngSubmit)="submit(updateForm.value)">
+            <form [formGroup]="formProduct"
+                  (submit)="submitFormProduct(formProduct.value)"
+            >
                 <div class="name">
                     <p>Tên:</p>
-                    <input type="text" name="title" [(ngModel)]="title" placeholder="Nhập tên sản phẩm">
+                    <input formControlName="title" type="text" name="title" placeholder="Nhập tên sản phẩm">
                 </div>
                 <div class="img">
                     <p>Ảnh:</p>
-                    <input type="text" name="image" [(ngModel)]="image" placeholder="Nhap link hình ảnh">
+                    <input formControlName="image"  type="text" name="image"  placeholder="Nhap link hình ảnh">
                 </div>
                 <div class="price">
                     <p>Giá:</p>
-                    <input type="number" name="price" [(ngModel)]="price" placeholder="Nhập giá sản phẩm">
+                    <input formControlName="price"  type="number" name="price" placeholder="Nhập giá sản phẩm">
                 </div>
                 <div class="catelogy">
                     <p>Loai:</p>
-                    <input type="text" name="catelogy" [(ngModel)]="catelogy" placeholder="Nhap loại sản phẩm">
+                    <input formControlName="catelogy"  type="text" name="catelogy" placeholder="Nhap loại sản phẩm">
                 </div>
                 <div class="conten">
                     <p>Mô Tả:</p>
-                    <input type="text" name="conten" [(ngModel)]="conten" placeholder="Nhập mô tả sản phẩm">
+                    <input formControlName="conten"  type="text" name="conten" placeholder="Nhập mô tả sản phẩm">
                 </div>
                 <div class="buttom">
                     <button type="submit" >{{ isEdit ? 'Cập Nhật' : 'Thêm' }}</button>
+                    
                 </div>
             </form>
         </div>

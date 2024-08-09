@@ -1,43 +1,48 @@
-import { Component } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, NgForm } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { resgiterInForm } from '../../type/user.type';
 
 @Component({
   selector: 'app-resgiter',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule,ReactiveFormsModule],
   templateUrl: './resgiter.component.html',
   styleUrls: ['./resgiter.component.css']
 })
-export class ResgiterComponent {
-  name: string = '';
-  email: string = '';
-  phone: string = '';
-  password: string = '';
-  confirmPassword: string = '';
+export class ResgiterComponent implements OnInit{
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {};
+  resgiterForm! : FormGroup;
+  ngOnInit(): void {
+      this.resgiterForm = new FormGroup({
+        name: new FormControl(''),
+        tel: new FormControl(''),
+        gmail: new FormControl(''),
+        password: new FormControl(''),
+        confirmPassword: new FormControl(''),
+      })
+  };
 
-  onRegister(registerForm: NgForm) {
-    if (registerForm.valid) {
-      if (this.password !== this.confirmPassword) {
-        alert('Mật khẩu không khớp!');
-        return;
-      }
-
-      this.authService.register(this.name, this.email, this.password).subscribe(
-        response => {
-          console.log('Dang Ky Thanh Cong', response);
-          alert('Dang Ky Thanh Cong');
-          this.router.navigate(['/SingeIn']); 
+  submitResgiterForm(formVlaue: resgiterInForm):void{
+    console.log('formVlaue:', formVlaue);
+    const{ name, gmail, password, confirmPassword}=formVlaue;
+    if(password === confirmPassword){
+      this.authService.register(name, gmail, password).subscribe({
+        next:(response) =>{
+          alert('Đăng Ký Thành Công')
+          this.router.navigate(['/SingeIn'])
         },
-        error => {
-          console.error('Dang Ky That Bai', error);
-          alert('Dang Ky That Bai');
+        error:(err) =>{
+          alert('Đăng Ký Không Thành Công')
         }
-      );
+      }) 
+    }else{
+     alert('Mật Khẩu Không Khớp')
     }
   }
+  
 }

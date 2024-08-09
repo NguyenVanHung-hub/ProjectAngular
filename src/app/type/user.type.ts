@@ -8,3 +8,16 @@ export interface User{
 }
 
 
+export interface logInForm{
+    gmail: string,
+    password: string
+}
+
+
+export interface resgiterInForm{
+    name: string,
+    tel: number,
+    gmail: string,
+    password: string,
+    confirmPassword:string
+}
