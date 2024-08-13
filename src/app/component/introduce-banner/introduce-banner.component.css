@@ -4,7 +4,7 @@
     height: 90vh;
     background-image: url('https://oldsailor.com.vn/vnt_upload/about/banner.jpg');
     background-size:cover;
-
+    margin-top: 165px;
 }
 .banner-mbg{
     position: absolute;

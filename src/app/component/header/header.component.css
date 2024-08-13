@@ -1,9 +1,7 @@
 .header{
-    
-    /* position: relative; */
-    position: -webkit-sticky;
-    position: sticky;
+    position: fixed;
     top: 0;
+    width: 100%;
     z-index: 100;
     font-size: 140%;
     background-color: white;
@@ -14,7 +12,8 @@
     position: relative;
     height: auto;
     display: none;
-    position: absolute;
+    position: fixed;
+    z-index: 999;
     top: 0;
     right: 0;
     background-color: white;

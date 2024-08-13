@@ -6,22 +6,22 @@
         <div class="shop-wrapper">
             <div class="shop-top">
                 <i class="fa-solid fa-xmark"  (click) = "changeStyleShop2()"></i>
-                <h2>Gio Hang</h2>
+                <h2>Giỏ Hàng</h2>
             </div>
             <div class="shop-product" *ngFor="let item of receivedDataArray; let i = index">
                 <div class="shop-produ-img">
                     <img src="{{item.image}}" alt="">
                 </div>
                 <div class="shop-pro-tex">
-                    <p>Ten: {{item.title}}</p>
-                    <p>Gia: {{item.price}}</p>
+                    <p>Tên: {{item.title}}</p>
+                    <p>Giá: {{item.price}}</p>
                 </div>
                 <div class="shop-pro-input">
-                    <p>So Luong</p>
+                    <p>Số Lượng</p>
                     <input class="shop-input" type="number" value="1" [(ngModel)]="item.quantity" (input)="updateQuantity(i)">
                 </div>
                 <div class="shop-remove">
-                    <button (click)="removeItem(i)">xoa</button>
+                    <button (click)="removeItem(i)">xóa</button>
                 </div>
             </div>
             
@@ -31,7 +31,7 @@
             </div>
 
             <div class="pay">
-                <button (click)="handelClick()">Thanh Toan</button>
+                <button (click)="handelClick()">Thanh Toán</button>
             </div>
         </div>
         

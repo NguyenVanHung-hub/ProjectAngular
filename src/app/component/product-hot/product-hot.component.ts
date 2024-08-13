@@ -105,6 +105,7 @@ customOptions: OwlOptions = {
     991:{
       items:4
     },
+   
     
   }
 }
