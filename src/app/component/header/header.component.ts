@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, Renderer2, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, Renderer2, OnInit, OnDestroy, AfterViewInit, HostListener } from '@angular/core';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { ShopDataService } from '../shop-data.service';
 import { CommonModule } from '@angular/common';
@@ -172,4 +172,6 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
     this.currenMenuMain = this.router.url;
   };
 
+
+  
 }
