@@ -108,17 +108,17 @@ export class ProductMainComponent implements OnInit,OnDestroy{
   
 
   initializeComponent(): void {
-    // Logic khởi tạo khác
+    
   }
   doSomethingWithSearch(search: string): void {
     if (!search) {
       this.filteredProducts = [...this.products];
       return;
     }
-    // Normalize search query (convert to lower case, remove diacritics, and trim)
+   
     const normalizedSearch = diacritics.remove(search.toLowerCase().trim());
     this.filteredProducts = this.products.filter(product => {
-      // Normalize product name (convert to lower case, remove diacritics, and trim)
+      
       const normalizedProductName = diacritics.remove(product.title.toLowerCase().trim());
       return normalizedProductName.includes(normalizedSearch);
     });

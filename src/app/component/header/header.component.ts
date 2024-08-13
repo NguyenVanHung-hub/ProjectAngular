@@ -160,7 +160,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
   search:string='';
   searchXuLy(item: string){
     this.router.navigate(['/product'], { queryParams: { search: item.search} });
-  }
+  };
 
   currenMenuMain: string ='/Admim/Home';
   changemenu(): void {
