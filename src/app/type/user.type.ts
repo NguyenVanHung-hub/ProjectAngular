@@ -21,3 +21,12 @@ export interface resgiterInForm{
     password: string,
     confirmPassword:string
 }
+
+export interface Product{
+    id?: number,
+    title: string,
+    image: string,
+    catelogy: string,
+    price: number,
+    conten:string
+}

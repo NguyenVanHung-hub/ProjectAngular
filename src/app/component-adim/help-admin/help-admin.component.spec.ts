@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProAdminContenComponent } from './pro-admin-conten.component';
+import { HelpAdminComponent } from './help-admin.component';
 
-describe('ProAdminContenComponent', () => {
-  let component: ProAdminContenComponent;
-  let fixture: ComponentFixture<ProAdminContenComponent>;
+describe('HelpAdminComponent', () => {
+  let component: HelpAdminComponent;
+  let fixture: ComponentFixture<HelpAdminComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProAdminContenComponent]
+      imports: [HelpAdminComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ProAdminContenComponent);
+    fixture = TestBed.createComponent(HelpAdminComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

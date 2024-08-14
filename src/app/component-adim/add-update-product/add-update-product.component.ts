@@ -5,17 +5,17 @@ import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms'
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../../component/product.service';
-import { User } from '../../type/user.type';
+import { Product, User } from '../../type/user.type';
 import { ActivatedRoute, Router } from '@angular/router';
-import { response } from 'express';
+
 @Component({
-  selector: 'app-add-update-conten',
+  selector: 'app-add-update-product',
   standalone: true,
   imports: [MenuAdminComponent, FooterAdminComponent,FormsModule,CommonModule,ReactiveFormsModule],
-  templateUrl: './add-update-conten.component.html',
-  styleUrl: './add-update-conten.component.css'
+  templateUrl: './add-update-product.component.html',
+  styleUrl: './add-update-product.component.css'
 })
-export class AddUpdateContenComponent implements OnInit{
+export class AddUpdateProductComponent implements OnInit{
   formProduct! : FormGroup;
   isEdit: boolean= false;
   id: number | undefined;
@@ -53,7 +53,7 @@ export class AddUpdateContenComponent implements OnInit{
     };
 
 
-    submitFormProduct(formProduct: User): void{
+    submitFormProduct(formProduct: Product): void{
       const newFormProduct = formProduct;
       if(this.isEdit && this.id !== undefined){
         this.productService.updateProduct(this.id, newFormProduct).subscribe({

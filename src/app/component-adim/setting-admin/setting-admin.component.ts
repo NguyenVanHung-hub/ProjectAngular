@@ -1,13 +1,13 @@
 import { Component} from '@angular/core';
 import { NgIf,NgClass } from '@angular/common';
 @Component({
-  selector: 'app-setting-conten',
+  selector: 'app-setting-admin',
   standalone: true,
   imports: [NgIf,NgClass],
-  templateUrl: './setting-conten.component.html',
-  styleUrl: './setting-conten.component.css'
+  templateUrl: './setting-admin.component.html',
+  styleUrl: './setting-admin.component.css'
 })
-export class SettingContenComponent {
+export class SettingAdminComponent {
   currentForm: string='profile';
   showProfile(){
     this.currentForm='profile';

@@ -6,13 +6,13 @@ import { Router } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
-  selector: 'app-pro-admin-conten',
+  selector: 'app-product-admin',
   standalone: true,
   imports: [NgFor,NgIf,NgxPaginationModule],
-  templateUrl: './pro-admin-conten.component.html',
-  styleUrl: './pro-admin-conten.component.css'
+  templateUrl: './product-admin.component.html',
+  styleUrl: './product-admin.component.css'
 })
-export class ProAdminContenComponent implements OnInit{
+export class ProductAdminComponent implements OnInit{
   users: User[] = [];
   page: number=1;
   itemPage: number= 15;

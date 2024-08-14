@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SettingContenComponent } from './setting-conten.component';
+import { FileAdminComponent } from './file-admin.component';
 
-describe('SettingContenComponent', () => {
-  let component: SettingContenComponent;
-  let fixture: ComponentFixture<SettingContenComponent>;
+describe('FileAdminComponent', () => {
+  let component: FileAdminComponent;
+  let fixture: ComponentFixture<FileAdminComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SettingContenComponent]
+      imports: [FileAdminComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SettingContenComponent);
+    fixture = TestBed.createComponent(FileAdminComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
